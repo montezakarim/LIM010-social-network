@@ -4,9 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Social Network</title>
+  <title>Sweet Diet</title>
+  <script type="module" src="main.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAY3VOT2W4EKd4wxEfo759lF2sjMk6Hy4I",
+    authDomain: "sweet-diet-5c3e2.firebaseapp.com",
+    databaseURL: "https://sweet-diet-5c3e2.firebaseio.com",
+    projectId: "sweet-diet-5c3e2",
+    storageBucket: "",
+    messagingSenderId: "114566620755",
+    appId: "1:114566620755:web:0b0b489f58560e4e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
+  <div class="contenedor-form">
+    <section>
+      <h2>Iniciar Sesión</h2>
+      <form action="#">
+        <input type="email" placeholder="Usuario" required>
+        <input type="password" placeholder="Contraseña" required>
+        <input type="submit" value= "Iniciar Sesión">
+      </form>
+    </section>
+    <div>
+      <span>Crear Cuenta</span>
+      <span>Facebook</span>
+      <span> google</span>
+    </div>
+  </div>
+  <div class="crear-cuenta">
+      <section>
+        <h2>Crear Cuenta</h2>
+        <form action="#">
+          <input type="text" placeholder="Nombre" required>
+          <input type="email" placeholder="e-mail" required>
+          <input type="password" placeholder="Contraseña" required>
+          <input type="password" placeholder="Confirmar Contraseña" required>
+          <input type="submit" value= "Registrarse">
+        </form>
+ <script src="main.js"></script>
+ <script src="data.js"></script>
 </body>
 </html>
