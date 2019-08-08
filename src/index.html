@@ -4,59 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
   <title>Sweet Diet</title>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- El core Firebase JS SDK siempre se requiere y debe enumerarse primero-->
  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
- <!--<script type="module" src="main.js"></script>-->
- 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
- <!-- <script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAY3VOT2W4EKd4wxEfo759lF2sjMk6Hy4I",
-    authDomain: "sweet-diet-5c3e2.firebaseapp.com",
-    databaseURL: "https://sweet-diet-5c3e2.firebaseio.com",
-    projectId: "sweet-diet-5c3e2",
-    storageBucket: "",
-    messagingSenderId: "114566620755",
-    appId: "1:114566620755:web:0b0b489f58560e4e"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>-->
 </head>
 <body>
-  <div class="contenedor-form">
-    <section>
-      <h2>Iniciar Sesión</h2>
-      <form action="#">
-        <input id="txt-email" type="email" placeholder="Usuario" required>
-        <input id="txt-password" type="password" placeholder="Contraseña" required>
-        <input id="btn-login" type="submit" value= "Iniciar Sesión">
-      </form>
-    </section>
-    <div>
-      <span>Crear Cuenta</span>
-      <span>Facebook</span>
-      <span> google</span>
-    </div>
-  </div>
-  <div class="crear-cuenta">
+  <header class="cabecera">
+    <img class="logo" src="img/Sweet Diet Logo1.png" alt="Sweet Diet">
+    <p class="slogan">"Rico y Saludable"</p>
+  </header>
+  <main>
+    <div class="contenedor-form">
       <section>
-        <h2>Crear Cuenta</h2>
+        <h2>Bienvenid@</h2>
         <form action="#">
-          <input id="txt-name-regist-add" type="text" placeholder="Nombre" required>
-          <input id="txt-email-add" type="email" placeholder="e-mail" required>
-          <input id="txt-password-add" type="password" placeholder="Contraseña" required>
-          <input id="txt-confir-password-add" type="password" placeholder="Confirmar Contraseña" required>
-          <input id="btn-add" type="submit" value= "Registrarse">
+          <input id="txt-email" type="email" placeholder="Usuario" required>
+          <input id="txt-password" type="password" placeholder="Contraseña" required>
+          <input id="btn-login" type="submit" value= "Iniciar Sesión">
         </form>
-
+      </section>
+      <div>
+        <p>Ingresar con: </p>
+        <button id= "btn-facebook" class="facebook"></button>
+        <button id="btn-google" class="google"></button>
+        <input id= "add" type="submit" value="Crear Cuenta"> 
+      </div>
+    </div>
+    <div class="crear-cuenta hide">
+        <section>
+          <h2>Crear Cuenta</h2>
+          <form action="#">
+            <input id="txt-name-regist-add" type="text" placeholder="Nombre" required>
+            <input id="txt-email-add" type="email" placeholder="e-mail" required>
+            <input id="txt-password-add" type="password" placeholder="Contraseña" required>
+            <input id="txt-confir-password-add" type="password" placeholder="Confirmar Contraseña" required>
+            <input id="btn-add" type="submit" value= "Registrarse">
+            <button id="btn-logout" class="hide">Cerrar Sesión</button>
+          </form>
+  </main>
+  <footer>
+    Sweet Diet by KarMel  Copyright © All rights reserved.
+  </footer>
  <script src="main.js"></script>
- <script src="data.js"></script>
+ <!-- <script type="module" src="main.js"></script> -->
 </body>
 </html>
