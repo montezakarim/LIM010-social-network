@@ -1,14 +1,9 @@
-// // Este es el punto de entrada de tu aplicacion
-// import {  
-  // registerGoogleLogIn,
-  // registerFacebookLogIn
-// } from './lib/index.js';
+// Este es el punto de entrada de tu aplicacion
 
-// myFunction();
-// const init = () => {
-
-// }
-
+const init = () => {
+window.addEventListener('hashchange', ()=> console.log(window.location.hash))
+}
+window.addEventListener('load',init);
 
 (function(){
     const firebaseConfig = {
@@ -36,7 +31,7 @@
       const btnGoogle=document.getElementById('btn-google');
       const btnLogout=document.getElementById('btn-logout')
       //Añadir evento login
-      btnLogin.addEventListener('click',() =>{
+      btnLogin.addEventListener('click',() => {
           const email = txtEmail.value;
           const password = txtPassword.value;
 

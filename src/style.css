@@ -12,10 +12,8 @@ body{
 }
 
 html, body, header {
-  
     display: flex;
     justify-content: center;
-    margin: auto;
     flex-wrap: wrap;
 }
 
@@ -44,6 +42,25 @@ header{
     border-radius: 5px;
     background-color: rgba(224, 226, 226, 0.9);
     padding: 5px;
+    width: 310px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+    /* .login, .checkin{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    } */
+input{
+    width: 80%;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(245, 241, 241, 0.801);
 }
 .facebook{
     padding: 5px;
@@ -72,7 +89,7 @@ header{
 footer{
     display: flex;
     justify-content: center;
-    font-size: 14px;
+    font-size: 16px;
     color: #FFF;
     padding-top: 15px;
     padding-bottom: 15px;
