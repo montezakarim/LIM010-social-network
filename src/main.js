@@ -90,6 +90,7 @@
       btnLogout.addEventListener('click',()=>{
         firebase.auth().signOut();
       });
+      const activeUser =()=>{
       firebase.auth().onAuthStateChanged(firebaseUser=>{
         if(firebaseUser){
           console.log(firebaseUser);
@@ -99,5 +100,7 @@
           btnLogout.classList.add('hide');
         }
       });
+      };
+      activeUser();
 
 }());
