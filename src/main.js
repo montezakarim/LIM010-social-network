@@ -5,6 +5,10 @@
 // } from './lib/index.js';
 
 // myFunction();
+// const init = () => {
+
+// }
+
 
 (function(){
     const firebaseConfig = {
