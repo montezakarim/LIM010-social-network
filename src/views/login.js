@@ -23,7 +23,10 @@ export default () => {
         <button id="btn-google" class="google"></button>
         <label>¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
       </div>
-    </div> `;
+    </div> 
+    <footer>
+      Sweet Diet by KarMel  Copyright © All rights reserved.
+    </footer>`;
   loginUser.innerHTML = templateLogin;
   
   const formAutenticacion = loginUser.querySelector('#autenticacion');

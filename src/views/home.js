@@ -22,7 +22,9 @@ export default () => {
           <label>¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
         </div>
       </div>
-    `;
+      <footer>
+        Sweet Diet by KarMel  Copyright © All rights reserved.
+      </footer>`;
     home.innerHTML = templateHome;
     return home;
   };

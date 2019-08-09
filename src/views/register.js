@@ -18,7 +18,10 @@ export default () => {
           <input id="btn-add" type="submit" value= "Registrarse">
           <a href="#/register"><span id="register" class="bold">Iniciar Sesión</span></a>
       </form>
-    </div>`;
+    </div>
+    <footer>
+      Sweet Diet by KarMel  Copyright © All rights reserved.
+    </footer>`;
   registerUser.innerHTML = templateRegister;
   const btnAdd = registerUser.querySelector('#btn-add');
   btnAdd.addEventListener('click', functionRegister);
