@@ -6,49 +6,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
   <title>Sweet Diet</title>
-  <!-- El core Firebase JS SDK siempre se requiere y debe enumerarse primero-->
- <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
- <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
 </head>
+  <!-- El core Firebase JS SDK siempre se requiere y debe enumerarse primero-->
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-database.js"></script>
 <body>
-  <header class="cabecera">
-    <img class="logo" src="img/Sweet Diet Logo1.png" alt="Sweet Diet" ><a href="#"></a>>
-    <p class="slogan">"Rico y Saludable"</p>
-  </header>
-  <main>
-    <div class="contenedor-form">
-      <div class="login">
-        <h2>Bienvenid@</h2>
-        <form action="#">
-          <input id="txt-email" type="email" placeholder="Usuario" required>
-          <input id="txt-password" type="password" placeholder="Contraseña" required>
-          <input id="btn-login" type="submit" value= "Iniciar Sesión">
-        </form>
-      </div>
-      <div class="checkin">
-        <p>Ingresar con: </p>
-        <button id= "btn-facebook" class="facebook"></button>
-        <button id="btn-google" class="google"></button>
-        <p class="register center-s">¿No tienes una cuenta?<b>Regístrate</b></p>
-      </div>
+    <div id="container">
+
     </div>
-    <div id="registrar" class="crear-cuenta hide">
-        <section>
-          <h2>Crear Cuenta</h2>
-          <form action="#">
-            <input id="txt-name-regist-add" type="text" placeholder="Nombre" required>
-            <input id="txt-email-add" type="email" placeholder="e-mail" required>
-            <input id="txt-password-add" type="password" placeholder="Contraseña" required>
-            <input id="txt-confir-password-add" type="password" placeholder="Confirmar Contraseña" required>
-            <input id="btn-add" type="submit" value= "Registrarse">
-            <button id="btn-logout" class="hide">Cerrar Sesión</button>
-          </form>
-  </main>
   <footer>
     Sweet Diet by KarMel  Copyright © All rights reserved.
   </footer>
- <script src="main.js"></script>
  <script type="module" src="main.js"></script>
 </body>
 </html>
