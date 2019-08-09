@@ -8,7 +8,7 @@ export const functionRegister = (event) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(function (result) {
         alert('registrado');
-        location.hash = '#/';
+        location.hash = '#/register';
       })
       .catch(error => {
         alert('Error');

@@ -1,5 +1,5 @@
 // Este es el punto de entrada de tu aplicacion
-import { changeView } from './controller/components.js';
+import { changeView } from './controller/routers.js';
 import { configFirebase } from './controller/firebase.js';
 const init = () => {
   configFirebase();

@@ -13,11 +13,11 @@ export const changeView = (routers) => {
         container.appendChild(components.register())
       }
       break;
-    // case '#/home':
-    //   {
-    //     container.appendChild(components.home())
-    //   }
-    //   break;
+    case '#/home':
+      {
+        container.appendChild(components.home())
+      }
+      break;
     default: break;
   }
 }
