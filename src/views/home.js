@@ -9,7 +9,7 @@ export default () => {
         </div> 
         <nav>
           <ul class="links">
-            <li><a id="user-name">User</a></li>
+            <li><a id="user-name">Usuario</a></li>
             <li><a href="#/login">login</a></li>
             <li><a href="#/">Cerrar Sesión</a></li>
           </ul>

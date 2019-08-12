@@ -1,4 +1,4 @@
-import { functionRegister } from '../controller/registerc.js';
+import { functionRegisterClick } from '../controller/registerc.js';
 
 export default () => {
   const registerUser = document.createElement('div');
@@ -37,6 +37,6 @@ export default () => {
   </footer>`;
   registerUser.innerHTML = templateRegister;
   const btnAdd = registerUser.querySelector('#btn-add');
-  btnAdd.addEventListener('click', functionRegister);
+  btnAdd.addEventListener('click', functionRegisterClick);
   return registerUser;
 };

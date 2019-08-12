@@ -1,4 +1,4 @@
-import { singInLogin, signInFacebook, signInGoogle } from '../controller/loginc.js';
+import { singInLoginClick, signInFacebookClick, signInGoogleClick } from '../controller/loginc.js';
 export default () => {
 const loginUser = document.createElement('div');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     const templateLogin = `
   <div class="wrap">
@@ -39,8 +39,8 @@ const loginUser = document.createElement('div');                                
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');
 
-  formAutenticacion.addEventListener("submit", singInLogin);
-  loginFacebook.addEventListener('click', signInFacebook);
-  loginGoogle.addEventListener('click', signInGoogle);
+  formAutenticacion.addEventListener("submit", singInLoginClick);
+  loginFacebook.addEventListener('click', signInFacebookClick);
+  loginGoogle.addEventListener('click', signInGoogleClick);
   return loginUser;
 };

@@ -1,9 +1,10 @@
-export const singInLogin = (event) => {
+import  { singInLogin, signInFacebook, signInGoogle } from '../firebase/controllerdata.js'
+export const singInLoginClick = (event) => {
   event.preventDefault();
   const messageErrorLabel = document.getElementById("loginMessageError");
   const user = event.target.email.value;
   const password = event.target.password.value;
-  firebase.auth().signInWithEmailAndPassword(user, password)
+  singInLogin(user, password)
     .then(function (result) {
       messageErrorLabel.classList.remove("show-message-error");
       messageErrorLabel.innerHTML = '';
@@ -31,10 +32,10 @@ export const singInLogin = (event) => {
     });
 };
 
-export const signInFacebook = (event) => {
+export const signInFacebookClick = (event) => {
   event.preventDefault();
-  let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  signInFacebook()
+  .then(function() {
       // Esto te da un token de acceso de Facebook. Puedes usarlo para acceder a la API de Facebook.
       const token = result.credential.accessToken;
       //  La información de usuario registrada.
@@ -52,12 +53,12 @@ export const signInFacebook = (event) => {
     })
 };
 
-export const signInGoogle = (event) => {
+export const signInGoogleClick = (event) => {
   event.preventDefault();
    if (!firebase.auth().currentUser) {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+    signInGoogle(provider).then(function (result) {
       let token = result.credential.accessToken;
       let user = result.user;
       alert('Google')

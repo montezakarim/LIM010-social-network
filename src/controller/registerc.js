@@ -1,4 +1,5 @@
-export const functionRegister = (event) => {
+import { functionRegister } from '../firebase/controllerdata.js'
+export const functionRegisterClick = (event) => {
   event.preventDefault();
   
   const regMessageErrorLabel = document.getElementById("registerMessageError");
@@ -6,7 +7,7 @@ export const functionRegister = (event) => {
   const password = document.querySelector('#txt-password-add').value;
   console.log(email);
   console.log(password);
-  firebase.auth().createUserWithEmailAndPassword(email, password)
+  functionRegister(email, password)
     .then(function (result) {
       regMessageErrorLabel.classList.remove("show-message-error");
       regMessageErrorLabel.innerHTML = '';
