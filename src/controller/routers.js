@@ -23,7 +23,11 @@ export const changeView = (routers) => {
         container.appendChild(components.profile())
       }
       break;
-      
-    default: break;
+
+    default: 
+    {
+      container.appendChild(components.home())
+    }
+      break;
   }
 }
