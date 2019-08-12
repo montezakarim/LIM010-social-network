@@ -1,11 +1,11 @@
-import { components } from '../views/componentesv.js'
+import { components } from '../views/components.js'
 export const changeView = (routers) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (routers) {
     case '#/':
       {
-        container.appendChild(components.login())
+        container.appendChild(components.home())
       }
       break;
     case '#/register':
@@ -13,11 +13,21 @@ export const changeView = (routers) => {
         container.appendChild(components.register())
       }
       break;
-    case '#/home':
+    case '#/login':
       {
-        container.appendChild(components.home())
+        container.appendChild(components.login())
       }
       break;
-    default: break;
+    case '#/profile':
+      {
+        container.appendChild(components.profile())
+      }
+      break;
+
+    default: 
+    {
+      container.appendChild(components.home())
+    }
+      break;
   }
 }

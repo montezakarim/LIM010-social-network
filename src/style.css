@@ -19,14 +19,6 @@ html, body, header {
     flex-wrap: wrap;
 }
 
-header{
-	padding: 20px;
-	top: 0%;
-	left: 0%;
-	right: 0%;
-	z-index: 1000;
-	box-shadow: 0 3px 5px 0 rgba(7, 7, 7, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.09); 
-}
 .logo{
 	float: left;
 	width: 150px;
@@ -40,55 +32,84 @@ header{
 .hide{
     display: none;
 }
-.contenedor-form{
-    border-radius: 5px;
-    background-color: rgba(224, 226, 226, 0.9);
-    padding: 5px;
-    width: 310px;
-    height: 400px;
+
+
+.container-register{
+    width: 90%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+ 
+  .container-logo  img{
+
+    float: left;
+	  width: 350px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  
+  .register-login{  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:	#522e4a;
+  }
+  
+  
+  .form-group{
+    width: 60vw;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group input{
+     height: 40px;  
+     width: 100%;
+     border-radius: 5px;
+     border: 2px solid #59a272;
+     margin: 0.5rem;
+     padding: 7px 20px 7px 20px;
+  }
+  
+  
+  .form-group button{
+    height: 40px;
+    width:40%;
+    border-radius: 20px;
+    border:none;
+    background: #522e4a;
+    color:#5AC39B;
+    margin:1rem;
+    font-weight: bold;
+    font-size: 17px;
+  }
+  
+  .form-group button:hover{
+    
+    background:black;
+    color: #522e4a;  
+    
+  }
+  
+ 
+  .color-txt-return{
+      color: #59a272;
+  }
+
+  .wrap{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    box-sizing: border-box;
-}
-    /* .login, .checkin{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    } */
-input{
-    width: 80%;
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: rgba(245, 241, 241, 0.801);
-}
-.facebook{
-    padding: 5px;
-    font-size: 30px;
-    margin: 5px 2px;
-    border: none;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border-radius:100%;
-    background-image: url(img/facebook.png);
-    background-size: cover;
-}
-.google{
-    padding: 5px;
-    font-size: 30px;
-    margin: 5px 2px;
-    border: none;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    border-radius:100%;
-    background-image: url(img/google-plus.png);
-    background-size: cover; 
-}
-footer{
+  }
+  /* footer{
     display: flex;
     justify-content: center;
     font-size: 16px;
@@ -100,4 +121,47 @@ footer{
     left: 0;
     position: absolute;
     right: 0;
+} */
+.fg{
+  border: none;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  border-radius:100%;
+  background-size: cover;
 }
+
+
+.facebook{
+  background-image: url(img/facebook.png);
+}
+.google{
+  background-image: url(img/google-plus.png);
+}
+
+  @media (min-width: 768px) {
+    /****** LOGIN  *****/
+  
+  .container-register{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100vh; 
+  }
+  
+  .container-logo{
+    width: 58%;
+    height: 85vh;
+    align-items: center;
+  }
+  .container-logo  img{
+    width :80%;
+    height:80%;
+    align-items: center;
+  }
+ 
+
+   .form-group{
+    width: 25vw;
+   }
+
