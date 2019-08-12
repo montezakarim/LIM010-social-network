@@ -1,4 +1,4 @@
-import { components } from '../views/componentesv.js'
+import { components } from '../views/components.js'
 export const changeView = (routers) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
@@ -18,6 +18,12 @@ export const changeView = (routers) => {
         container.appendChild(components.home())
       }
       break;
+    case '#/profile':
+      {
+        container.appendChild(components.profile())
+      }
+      break;
+      
     default: break;
   }
 }

@@ -4,7 +4,6 @@
 * { margin :0;
     padding: 0;
 }
-
 body{
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,49 +12,31 @@ body{
     background-color: beige;
 }
 
-html, body, header {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 header{
-	padding: 20px;
-	top: 0%;
-	left: 0%;
-	right: 0%;
-	z-index: 1000;
-	box-shadow: 0 3px 5px 0 rgba(7, 7, 7, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.09); 
+	padding: 8px;
 }
 .logo{
 	float: left;
-	width: 150px;
+  width: 140px;
 	height: auto;
 }
 
-.slogan{
-    color: rgb(128, 110, 8);
-    margin-left: 2%;
-}
 .hide{
     display: none;
 }
 .contenedor-form{
-    border-radius: 5px;
-    background-color: rgba(224, 226, 226, 0.9);
-    padding: 5px;
-    width: 310px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    box-sizing: border-box;
+  width: 310px;
+  height: 370px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 5px 0 rgba(7, 7, 7, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.09); 
 }
-    /* .login, .checkin{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    } */
+.login {
+  width: 310px;
+  height: 120px;
+  font-size: 16px;
+  margin: 5px;
+}
+
 input{
     width: 80%;
     padding: 5px;
@@ -63,31 +44,32 @@ input{
     padding-bottom: 10px;
     border-radius: 10px;
     background-color: rgba(245, 241, 241, 0.801);
+    margin:3px;
 }
 .facebook{
-    padding: 5px;
-    font-size: 30px;
-    margin: 5px 2px;
     border: none;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius:100%;
     background-image: url(img/facebook.png);
     background-size: cover;
 }
 .google{
-    padding: 5px;
-    font-size: 30px;
-    margin: 5px 2px;
     border: none;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius:100%;
     background-image: url(img/google-plus.png);
     background-size: cover; 
 }
+.show-message-error{
+    display: inline-block;
+    color: #db4a39;
+    font-weight: bold;
+  }
+  
 footer{
     display: flex;
     justify-content: center;
@@ -101,3 +83,36 @@ footer{
     position: absolute;
     right: 0;
 }
+.wrap{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu{
+width: 50px;
+height: 50px;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+ul li{
+  display: inline-block;
+  padding: 0px 20px;
+}
+ul li a{
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  /* text-align: center; */
+  color: black;
+display: block;
+padding: 10px;
+}
+ul li a:hover{
+  color:#f1f1f1;
+  background-color: #6d9f16;
