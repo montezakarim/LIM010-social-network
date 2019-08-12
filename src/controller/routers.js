@@ -5,7 +5,7 @@ export const changeView = (routers) => {
   switch (routers) {
     case '#/':
       {
-        container.appendChild(components.login())
+        container.appendChild(components.home())
       }
       break;
     case '#/register':
@@ -13,9 +13,9 @@ export const changeView = (routers) => {
         container.appendChild(components.register())
       }
       break;
-    case '#/home':
+    case '#/login':
       {
-        container.appendChild(components.home())
+        container.appendChild(components.login())
       }
       break;
     case '#/profile':

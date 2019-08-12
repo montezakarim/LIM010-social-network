@@ -10,17 +10,14 @@ export default () => {
         <nav>
           <ul class="links">
             <li><a id="user-name">User</a></li>
-            <li><a href="#/">login</a></li>
+            <li><a href="#/login">login</a></li>
             <li><a href="#/">Cerrar Sesión</a></li>
           </ul>
         </nav>
       </header>   
-    <main>
-      <h1>...</h1>
-      <div id="profile"></div>
-    </main>
+    </div>
     <footer>
-    Sweet Diet by KarMel  © All rights reserved.
+      <p>Sweet Diet by KarMel  © All rights reserved.</p>
     </footer>`;
   home.innerHTML = templateHome;
   const userName = home.querySelector('#user-name');
