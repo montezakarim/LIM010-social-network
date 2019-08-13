@@ -1,12 +1,12 @@
-import { singInLogin, signInFacebook, signInGoogle } from '../controller/loginc.js';
+import { singInLoginClick, signInFacebookClick, signInGoogleClick } from '../controller/loginc.js';
 export default () => {
 const loginUser = document.createElement('div');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     const templateLogin = `
-  <div class="wrap">
+  <div class="container-register column">
     <div class="container-logo" >
-      <a href="#/"> <img src="img/Yummi.png" alt="Yummi"  ></a>
+      <a href="#/"> <img src="img/Yummi.png" alt="Yummi"></a>
     </div>   
     <div class="container-form wrap">
-      <div class="register-login">
+      <div class="register-login column">
         <h2>Iniciar Sesion con Yummi</h2>
         <form id="autenticacion" class="form-register" >
           <div class = "form-group">
@@ -30,17 +30,14 @@ const loginUser = document.createElement('div');                                
         <label>¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
         </div>
     </div>
-  </div>
-  <footer>
-   Sweet Diet by KarMel  © All rights reserved.
-  </footer>`;
+  </div>`;
   loginUser.innerHTML = templateLogin;
   const formAutenticacion = loginUser.querySelector('#autenticacion');
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');
 
-  formAutenticacion.addEventListener("submit", singInLogin);
-  loginFacebook.addEventListener('click', signInFacebook);
-  loginGoogle.addEventListener('click', signInGoogle);
+  formAutenticacion.addEventListener("submit", singInLoginClick);
+  loginFacebook.addEventListener('click', signInFacebookClick);
+  loginGoogle.addEventListener('click', signInGoogleClick);
   return loginUser;
 };

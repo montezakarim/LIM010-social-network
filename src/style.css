@@ -4,7 +4,6 @@
 * { margin :0;
     padding: 0;
 }
-
 body{
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,54 +12,57 @@ body{
     background-color: beige;
 }
 
-html, body, header {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 .logo{
 	float: left;
-	width: 150px;
+  width: 140px;
 	height: auto;
 }
 
-.slogan{
-    color: rgb(128, 110, 8);
-    margin-left: 2%;
+header{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background:#e5eb96f2;
+
 }
+
+.icon-header {
+  width: 30px;
+  height: 30px;
+  padding: 0 8px;
+}
+.icon-header:hover {
+  opacity: 0.8;
+}
+
+
 .hide{
     display: none;
 }
-
-
 .container-register{
     width: 90%;
     margin: auto;
     height: auto;
-    display: flex;
-    flex-direction: column;
     align-items: start;
   }
- 
+ .home{
+  display: flex;
+  align-items: center;
+ }
   .container-logo  img{
-
     float: left;
-	  width: 350px;
+	  width: 200px;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  
   .register-login{  
     width: 100%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     color:	#522e4a;
   }
-  
   
   .form-group{
     width: 60vw;
@@ -71,11 +73,11 @@ html, body, header {
   }
   
   .form-group input{
-     height: 40px;  
+     height: 30px;  
      width: 100%;
      border-radius: 5px;
-     border: 2px solid #59a272;
-     margin: 0.5rem;
+     border: 2px solid #437e58;
+     margin: 0.1rem;
      padding: 7px 20px 7px 20px;
   }
   
@@ -99,7 +101,6 @@ html, body, header {
     
   }
   
- 
   .color-txt-return{
       color: #59a272;
   }
@@ -109,19 +110,24 @@ html, body, header {
     justify-content: center;
     flex-wrap: wrap;
   }
-  /* footer{
+  .column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ footer{
     display: flex;
     justify-content: center;
     font-size: 16px;
     color: #FFF;
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: rgb(145, 136, 22);
+    background-color: rgb(218, 216, 134);
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
-} */
+}
 .fg{
   border: none;
   cursor: pointer;
@@ -130,8 +136,6 @@ html, body, header {
   border-radius:100%;
   background-size: cover;
 }
-
-
 .facebook{
   background-image: url(img/facebook.png);
 }
@@ -160,8 +164,13 @@ html, body, header {
     align-items: center;
   }
  
+  .icon-header {
+    width: 60px;
+    height: 60px;
+    padding: 0 15px;
+  }
 
    .form-group{
     width: 25vw;
    }
-
+  }

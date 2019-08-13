@@ -1,14 +1,14 @@
-export const singInLogin = (event) => {
+import  { singInLogin, signInFacebook, signInGoogle, logOut } from '../firebase/controllerdata.js'
+export const singInLoginClick = (event) => {
   event.preventDefault();
-  const messageErrorLabel = document.getElementById("loginMessageError");
-  const user = event.target.email.value;
+  const email = event.target.email.value;
   const password = event.target.password.value;
-  firebase.auth().signInWithEmailAndPassword(user, password)
+  const messageErrorLabel = document.getElementById("loginMessageError");
+  return singInLogin(email, password)
     .then(function (result) {
       messageErrorLabel.classList.remove("show-message-error");
       messageErrorLabel.innerHTML = '';
       location.hash = '#/home';
-      console.log(result);
       alert('Ingresaste')
       location.hash = '#/home';
     })
@@ -19,7 +19,7 @@ export const singInLogin = (event) => {
           messageErrorLabel.innerHTML = 'Usuario no registrado';
           break;
         case 'auth/wrong-password':
-          messageErrorLabel.innerHTML = 'Contraseña incorrecta';
+          messageErrorLabel.innerHTML = 'Contraseña incorrecta';x 
           break;
         case 'auth/invalid-email':
           messageErrorLabel.innerHTML = 'No se ingresó ningún correo electrónico';
@@ -31,10 +31,10 @@ export const singInLogin = (event) => {
     });
 };
 
-export const signInFacebook = (event) => {
+export const signInFacebookClick = (event) => {
   event.preventDefault();
-  let provider = new firebase.auth.FacebookAuthProvider();
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  signInFacebook()
+  .then(function() {
       // Esto te da un token de acceso de Facebook. Puedes usarlo para acceder a la API de Facebook.
       const token = result.credential.accessToken;
       //  La información de usuario registrada.
@@ -49,15 +49,16 @@ export const signInFacebook = (event) => {
       const email = error.email;
       // El tipo firebase.auth.AuthCredential que se utilizó.
       const credential = error.credential;
-    })
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
 };
 
-export const signInGoogle = (event) => {
+export const signInGoogleClick = (event) => {
   event.preventDefault();
-   if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+  return signInGoogle()
+  .then(function (result) {
       let token = result.credential.accessToken;
       let user = result.user;
       alert('Google')
@@ -71,10 +72,21 @@ export const signInGoogle = (event) => {
         alert('Es el mismo usuario');
       }
     });
-  } else {
-    firebase.auth().signOut();
-  } 
 };
  export const userCurrent =() =>{
    return firebase.auth().currentUser;
+};
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      return logOut()
+        .then(() => {
+          alert('Hasta Pronto');
+          location.hash = '#/ingreso';
+        });
+    } else {
+      location.hash = '#/registro';
+    }
+  });
 };
