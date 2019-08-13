@@ -3,7 +3,7 @@ export default () => {
 const loginUser = document.createElement('div');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     const templateLogin = `
   <div class="container-register column">
     <div class="container-logo" >
-      <a href="#/"> <img src="img/Yummi.png" alt="Yummi"></a>
+    <img  src="img/Yummy.PNG" alt="Yummi" ><a href="#"></a>
     </div>   
     <div class="container-form wrap">
       <div class="register-login column">
