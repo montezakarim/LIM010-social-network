@@ -8,7 +8,7 @@ export default () => {
   const templateRegister = `
   <div class="container-register column">
     <section class = "container-logo ">
-      <img  src="img/Yummi.png" alt="Yummi" ><a href="#"></a>
+      <img  src="img/Yummy.PNG" alt="Yummi" ><a href="#"></a>
     </section>
     <section class="container-form" id="registrar">
       <article class = "register-login column">
