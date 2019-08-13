@@ -1,5 +1,5 @@
-import { recoverUserName } from '../controller/homec.js'
-import { logOutOnClick } from '../controller/loginc.js'
+import { recoverUserName } from '../controller/homec.js';
+import { logOutOnClick } from '../controller/loginc.js';
 export default () => {
   const home = document.createElement('div');
   const templateHome = `

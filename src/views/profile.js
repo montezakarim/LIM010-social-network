@@ -23,7 +23,7 @@ export default () => {
     </div>
   </div>`;
 
-  profileUser.innerHTML = templateProfile;
+  profileUser.innerHTML = templateProfile; 
 
   const saveUser = profile.querySelector('#button-save');
   
