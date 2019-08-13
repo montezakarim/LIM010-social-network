@@ -1,10 +1,10 @@
-import  { singInLogin, signInFacebook, signInGoogle } from '../firebase/controllerdata.js'
+import  { singInLogin, signInFacebook, signInGoogle, logOut } from '../firebase/controllerdata.js'
 export const singInLoginClick = (event) => {
   event.preventDefault();
-  const messageErrorLabel = document.getElementById("loginMessageError");
-  const user = event.target.email.value;
+  const email = event.target.email.value;
   const password = event.target.password.value;
-  singInLogin(user, password)
+  const messageErrorLabel = document.getElementById("loginMessageError");
+  singInLogin(email, password)
     .then(function (result) {
       messageErrorLabel.classList.remove("show-message-error");
       messageErrorLabel.innerHTML = '';
@@ -50,15 +50,16 @@ export const signInFacebookClick = (event) => {
       const email = error.email;
       // El tipo firebase.auth.AuthCredential que se utilizó.
       const credential = error.credential;
-    })
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        alert('Es el mismo usuario');
+      }
+    });
 };
 
 export const signInGoogleClick = (event) => {
   event.preventDefault();
-   if (!firebase.auth().currentUser) {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-    signInGoogle(provider).then(function (result) {
+  signInGoogle()
+  .then(function (result) {
       let token = result.credential.accessToken;
       let user = result.user;
       alert('Google')
@@ -72,10 +73,21 @@ export const signInGoogleClick = (event) => {
         alert('Es el mismo usuario');
       }
     });
-  } else {
-    firebase.auth().signOut();
-  } 
 };
  export const userCurrent =() =>{
    return firebase.auth().currentUser;
+};
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      logOut()
+        .then(() => {
+          alert('Hasta Pronto');
+          location.hash = '#/ingreso';
+        });
+    } else {
+      location.hash = '#/registro';
+    }
+  });
 };

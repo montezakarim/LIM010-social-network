@@ -1,18 +1,19 @@
 import { recoverUserName } from '../controller/homec.js'
+import { logOutOnClick } from '../controller/loginc.js'
 export default () => {
   const home = document.createElement('div');
   const templateHome = `
-    <div class="wrap">
-      <header >
+    <div class="wrap home">
+      <header class="" >
         <div>
-          <img class="menu" src="img/Yummi.png" alt="Yummi" ><a href="#"></a>
+          <img class="icon-header" src="img/Yummi.png" alt="Yummi" ><a href="#"></a>
         </div> 
-        <nav>
-          <ul class="links">
-            <li><a id="user-name">Usuario</a></li>
-            <li><a href="#/login">login</a></li>
-            <li><a href="#/">Cerrar Sesión</a></li>
-          </ul>
+        <nav class="wrap">
+          <a href="#/"><img src="img/home.png" class ="icon-header" alt=""></a>
+          <a href="#/login"><img src="img/login.png" class ="icon-header" alt=""></a>
+          <a href="#/profile" id="user-name"><img src="img/logo-user.png" class ="icon-header" alt=""></a>
+          <a href="#/"><img src="img/search.png" class ="icon-header" alt=""></a>
+          <a href="#/" id="logout"><img src="img/logout2.png" class ="icon-header" alt=""></a>
         </nav>
       </header>   
     </div>
@@ -20,10 +21,12 @@ export default () => {
       <p>Sweet Diet by KarMel  © All rights reserved.</p>
     </footer>`;
   home.innerHTML = templateHome;
+  const btnLogOut = home.querySelector('#logout');
   const userName = home.querySelector('#user-name');
   recoverUserName(userName);
   userName.addEventListener('click',() => {
     location.hash = '#profile';
   });
+  btnLogOut.addEventListener('click', logOutOnClick);
   return home;
 };

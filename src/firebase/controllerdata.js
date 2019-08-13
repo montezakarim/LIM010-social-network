@@ -17,3 +17,5 @@ export const signInGoogle = () => {
   result;
     });
 };
+
+export const logOut = () => firebase.auth().signOut();
