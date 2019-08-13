@@ -1,4 +1,3 @@
-    
 import Register from './register.js';
 import Login from './login.js';
 import Home from './home.js';
