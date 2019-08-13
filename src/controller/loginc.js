@@ -19,7 +19,7 @@ export const singInLoginClick = (event) => {
           messageErrorLabel.innerHTML = 'Usuario no registrado';
           break;
         case 'auth/wrong-password':
-          messageErrorLabel.innerHTML = 'Contraseña incorrecta';
+          messageErrorLabel.innerHTML = 'Contraseña incorrecta';x 
           break;
         case 'auth/invalid-email':
           messageErrorLabel.innerHTML = 'No se ingresó ningún correo electrónico';
