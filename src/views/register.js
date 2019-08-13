@@ -21,7 +21,7 @@ export default () => {
             <input class="input-register" id="txt-email-add" type="text" placeholder="Email">
           </div>
           <div class = "form-group">
-            <input class="input-register" id="txt-password-add" type="text" placeholder="Password">
+            <input class="input-register" id="txt-password-add" type="password" placeholder="Password">
           </div>
           <div class = "form-group">
             <input class="btn-add" id="btn-add" type="submit" value="Registrar">

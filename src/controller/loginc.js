@@ -4,12 +4,11 @@ export const singInLoginClick = (event) => {
   const email = event.target.email.value;
   const password = event.target.password.value;
   const messageErrorLabel = document.getElementById("loginMessageError");
-  singInLogin(email, password)
+  return singInLogin(email, password)
     .then(function (result) {
       messageErrorLabel.classList.remove("show-message-error");
       messageErrorLabel.innerHTML = '';
       location.hash = '#/home';
-      console.log(result);
       alert('Ingresaste')
       location.hash = '#/home';
     })
@@ -58,7 +57,7 @@ export const signInFacebookClick = (event) => {
 
 export const signInGoogleClick = (event) => {
   event.preventDefault();
-  signInGoogle()
+  return signInGoogle()
   .then(function (result) {
       let token = result.credential.accessToken;
       let user = result.user;
@@ -81,7 +80,7 @@ export const logOutOnClick = (evt) => {
   evt.preventDefault();
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      logOut()
+      return logOut()
         .then(() => {
           alert('Hasta Pronto');
           location.hash = '#/ingreso';
