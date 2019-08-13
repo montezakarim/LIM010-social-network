@@ -7,7 +7,7 @@ const loginUser = document.createElement('div');                                
     </div>   
     <div class="container-form wrap">
       <div class="register-login column">
-        <h2>Iniciar Sesion con Yummi</h2>
+        <h2>Iniciar Sesion con Yummy</h2>
         <form id="autenticacion" class="form-register" >
           <div class = "form-group">
             <input id="email" type="email" placeholder="Usuario" required>
@@ -16,7 +16,7 @@ const loginUser = document.createElement('div');                                
             <input id="password" type="password" placeholder="Contraseña" required>
           </div>
           <div class = "form-group">
-            <input id="btn-login" type="submit" value= "Iniciar Sesión">
+            <input id="btn-login" class = "form-group" for type="submit" value= "Iniciar Sesión">
             <label id="loginMessageError"></label>
           </div>
         </form>
@@ -35,7 +35,6 @@ const loginUser = document.createElement('div');                                
   const formAutenticacion = loginUser.querySelector('#autenticacion');
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');
-
   formAutenticacion.addEventListener("submit", singInLoginClick);
   loginFacebook.addEventListener('click', signInFacebookClick);
   loginGoogle.addEventListener('click', signInGoogleClick);

@@ -27,7 +27,7 @@ export default () => {
             <input class="btn-add" id="btn-add" type="submit" value="Registrar">
           </div>
           <label id="registerMessageError"></label>
-          <a href="#/login"><span id="register" class="bold">Iniciar Sesión</span></a>
+          <a href="#/"><span id="register" class="bold">Iniciar Sesión</span></a>
         </form>
       </article> 
     </section>

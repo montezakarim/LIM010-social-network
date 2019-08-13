@@ -1,11 +1,11 @@
-import { components } from '../views/components.js'
+import { components } from '../views/components.js';
 export const changeView = (routers) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
   switch (routers) {
     case '#/':
       {
-        container.appendChild(components.home())
+        container.appendChild(components.login())
       }
       break;
     case '#/register':
@@ -13,9 +13,9 @@ export const changeView = (routers) => {
         container.appendChild(components.register())
       }
       break;
-    case '#/login':
+    case '#/home':
       {
-        container.appendChild(components.login())
+        container.appendChild(components.home())
       }
       break;
     case '#/profile':

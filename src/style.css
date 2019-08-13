@@ -75,7 +75,7 @@ header{
   .form-group input{
      height: 30px;  
      width: 100%;
-     border-radius: 5px;
+     border-radius: 20px;
      border: 2px solid #437e58;
      margin: 0.1rem;
      padding: 7px 20px 7px 20px;
@@ -83,9 +83,9 @@ header{
   
   
   .form-group button{
-    height: 40px;
-    width:40%;
-    border-radius: 20px;
+    height: 60px;
+    width:30%;
+    border-radius: 40px;
     border:none;
     background: #522e4a;
     color:#5AC39B;
