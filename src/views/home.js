@@ -11,10 +11,10 @@ export default () => {
         </div> 
         <nav class="wrap">
           <a href="#/"><img src="img/home.png" class ="icon-header" alt=""></a>
-          <a href="#/login"><img src="img/login.png" class ="icon-header" alt=""></a>
+          <a href="#/"><img src="img/login.png" class ="icon-header" alt=""></a>
           <a href="#/profile" id="user-name"><img src="img/logo-user.png" class ="icon-header" alt=""></a>
           <a href="#/"><img src="img/search.png" class ="icon-header" alt=""></a>
-          <a href="#/" id="logout"><img src="img/logout2.png" class ="icon-header" alt=""></a>
+          <button id="logout"><img src="img/logout2.png" class ="icon-header" alt=""></button>
         </nav>
       </header>   
     </div>

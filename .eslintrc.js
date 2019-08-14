@@ -11,6 +11,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     firebase: 'readonly',
+    location: 'readonly'
   },
   plugins: ['jest'],
   parserOptions: {

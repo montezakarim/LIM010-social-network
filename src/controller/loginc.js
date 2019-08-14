@@ -1,5 +1,7 @@
 import
-{ singInLogin, signInFacebook, signInGoogle, logOut } 
+{
+  singInLogin, signInFacebook, signInGoogle, logOut 
+}
   from '../firebase/controllerdata.js';
 
 const changeHash = (hash) => {
@@ -15,7 +17,7 @@ export const singInLoginClick = (event) => {
     .then(() => {
       messageErrorLabel.classList.remove('show-message-error');
       messageErrorLabel.innerHTML = '';
-      alert('Ingresaste');
+      console.log('Ingresaste');
       changeHash('#/home');
       // location.hash = '#/home';
     })
@@ -46,7 +48,7 @@ export const signInFacebookClick = (event) => {
       // const token = result.credential.accessToken;
       // //  La información de usuario registrada.
       // const user = result.user;
-      // alert('Facebook')
+      // console.log('Facebook')
       changeHash('#/home');
     }).catch((error) => {
       // Manejar errores aquí.
@@ -57,7 +59,7 @@ export const signInFacebookClick = (event) => {
       // // El tipo firebase.auth.AuthCredential que se utilizó.
       // const credential = error.credential;
       if (errorCode === 'auth/account-exists-with-different-credential') {
-        alert('Es el mismo usuario');
+        console.log('Es el mismo usuario');
       }
     });
 };
@@ -68,7 +70,7 @@ export const signInGoogleClick = (event) => {
     .then(() => {
       // let token = result.credential.accessToken;
       // let user = result.user;
-      // alert('Google')
+      // console.log('Google')
       changeHash('#/home');
     }).catch((error) => {
       const errorCode = error.code;
@@ -76,26 +78,18 @@ export const signInGoogleClick = (event) => {
       // let email = error.email;
       // let credential = error.credential;
       if (errorCode === 'auth/account-exists-with-different-credential') {
-        alert('Es el mismo usuario');
+        console.log('Es el mismo usuario');
       }
     });
 };
 
-export const userCurrent = () => {
-  return firebase.auth().currentUser;
-};
-export const logOutOnClick = (event) => {
-  event.preventDefault();
+export const userCurrent = () => firebase.auth().currentUser;
 
-  firebase.auth().onAuthStateChanged()
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  logOut()
     .then(() => {
-    // if (user) {
-    //   return logOut()
-      alert('Hasta Pronto');
-          // location.hash = '#/ingreso';
-      changeHash('#/ingreso');
-    }).catch(() => {
-      // location.hash = '#/registro';
-      changeHash('#/registro');
+    console.log('Hasta Pronto');
+      changeHash('#/');
     });
 };
