@@ -1,5 +1,6 @@
 import { recoverUserName } from '../controller/homec.js';
 import { logOutOnClick } from '../controller/loginc.js';
+
 export default () => {
   const home = document.createElement('div');
   const templateHome = `
@@ -24,8 +25,8 @@ export default () => {
   const btnLogOut = home.querySelector('#logout');
   const userName = home.querySelector('#user-name');
   recoverUserName(userName);
-  userName.addEventListener('click',() => {
-    location.hash = '#profile';
+  userName.addEventListener('click', () => {
+    // location.hash = '#profile';
   });
   btnLogOut.addEventListener('click', logOutOnClick);
   return home;

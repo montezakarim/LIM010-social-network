@@ -1,11 +1,11 @@
-export const functionRegister = (email, password) =>   { 
+export const functionRegister = (email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password);
 };
-export const singInLogin = (email, password) =>{
+export const singInLogin = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 };
 export const signInFacebook = () => {
-  let provider = new firebase.auth.FacebookAuthProvider();
+  const provider = new firebase.auth.FacebookAuthProvider();
   return firebase.auth().signInWithPopup(provider);
 };
 

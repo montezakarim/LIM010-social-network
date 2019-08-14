@@ -1,7 +1,8 @@
 import { singInLoginClick, signInFacebookClick, signInGoogleClick } from '../controller/loginc.js';
 
 export default () => {
-  const loginUser = document.createElement('div');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     const templateLogin = `
+  const loginUser = document.createElement('div');
+  const templateLogin = `
     <div class="container-register column">
       <div class="container-logo">
         <img  src="img/Yummy.PNG" alt="Yummi"><a href="#"></a>
@@ -37,7 +38,7 @@ export default () => {
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');
 
-  formAutenticacion.addEventListener("submit", singInLoginClick);
+  formAutenticacion.addEventListener('submit', singInLoginClick);
   loginFacebook.addEventListener('click', signInFacebookClick);
   loginGoogle.addEventListener('click', signInGoogleClick);
   return loginUser;

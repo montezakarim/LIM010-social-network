@@ -1,15 +1,15 @@
-// // importamos la funcion que vamos a testear
-// import { myFunction } from '../src/lib/index';
+// // // importamos la funcion que vamos a testear
+// // import { myFunction } from '../src/lib/index';
 
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
-// configurando firebase mock
+// // describe('myFunction', () => {
+// //   it('debería ser una función', () => {
+// //     expect(typeof myFunction).toBe('function');
+// //   });
+// // });
+// // configurando firebase mock
 
 const firebasemock = require('firebase-mock');
-const mockauth = new firebasemock.MockFirebase();
+const mockauth = new firebasemock.MockAuthentication();
 const mockfirestore = new firebasemock.MockFirestore();
 mockfirestore.autoFlush();
 mockauth.autoFlush();
@@ -22,7 +22,8 @@ global.firebase = firebasemock.MockFirebaseSdk(
 );
 
 // iniciando tests
-import  { singInLogin, signInFacebook, signInGoogle, logOut } from '../src/firebase/controllerdata.js';
+import  { singInLogin, signInFacebook, signInGoogle, logOut }
+from '../src/firebase/controllerdata.js';
 
 describe('Iniciar Sesión', () => {
   it('Debería iniciar sesion', () => {
@@ -56,5 +57,5 @@ describe('sesion cerrada', () => {
       .then(() => {
         expect(firebase.auth().currentUser).toBe(null);
       });
-  });
-}); 
+ });
+});
