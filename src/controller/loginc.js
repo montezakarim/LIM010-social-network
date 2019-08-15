@@ -1,4 +1,9 @@
-import { singInLogin, signInFacebook, signInGoogle, logOut } from '../firebase/controllerdata.js';
+import
+{
+  singInLogin, signInFacebook, signInGoogle, logOut,
+}
+  from '../firebase/controllerdata.js';
+
 
 const messageErrorLabel = document.getElementById('loginMessageError');
 export const singInLoginClick = (event) => {
@@ -33,13 +38,12 @@ export const signInFacebookClick = (event) => {
   event.preventDefault();
   signInFacebook()
     .then(() => {
-      messageErrorLabel.classList.remove('show-message-error');
-      window.location.hash('#/home');
+      window.location.hash = '#/home';
     }).catch((error) => {
       messageErrorLabel.classList.add('show-message-error');
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
-        messageErrorLabel.innerHTML = 'Es el mismo usuario';
+        // console.log('es el mismo usuario');
       }
     });
 };
@@ -48,12 +52,12 @@ export const signInGoogleClick = (event) => {
   event.preventDefault();
   return signInGoogle()
     .then(() => {
-      window.location.hash('#/home');
+      window.location.hash = '#/home';
     }).catch((error) => {
       messageErrorLabel.classList.add('show-message-error');
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
-        messageErrorLabel.innerHTML = 'Es el mismo usuario';
+        // console.log('es el mismo usuario');
       }
     });
 };
@@ -64,6 +68,6 @@ export const logOutOnClick = (evt) => {
   evt.preventDefault();
   logOut()
     .then(() => {
-      window.location.hash('#/');
+      window.location.hash = '#/';
     });
 };

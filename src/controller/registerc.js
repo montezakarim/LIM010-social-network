@@ -10,6 +10,7 @@ export const functionRegisterClick = (event) => {
       regMessageErrorLabel.classList.remove('show-message-error');
       regMessageErrorLabel.innerHTML = '';
       window.location.hash = '#/';
+      // alert('Usuario creado');
     })
     .catch((error) => {
       regMessageErrorLabel.classList.add('show-message-error');
