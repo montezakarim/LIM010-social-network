@@ -3,13 +3,12 @@ import { singInLoginClick, signInFacebookClick, signInGoogleClick } from '../con
 export default () => {
   const loginUser = document.createElement('div');
   const templateLogin = `
-    <div class="container-register column">
-      <div class="container-logo">
-        <img  src="img/Yummy.PNG" alt="Yummi"><a href="#"></a>
+      <div class="container-logo b" >
+        <img  src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
       </div>   
-      <div class="container-form wrap">
+      <div class="container-form wrap b">
         <div class="register-login column">
-          <h2>Iniciar Sesion con Yummi</h2>
+          <h2 >Bienvenid@!!</h2>
           <form id="autenticacion" class="form-register" >
             <div class = "form-group">
               <input id="email" type="email" placeholder="Usuario" required>
@@ -18,22 +17,22 @@ export default () => {
               <input id="password" type="password" placeholder="Contraseña" required>
             </div>
             <div class = "form-group">
-              <input id="btn-login" type="submit" value= "Iniciar Sesión">
+              <button id="btn-login">Iniciar Sesión</button>
               <label id="loginMessageError"></label>
             </div>
           </form>
         </div>
         <div class="column">
-          <p>Ingresar con: </p>
+          <p class="ingresar">O ingresa con: </p>
           <div class="wrap">
             <button id= "btn-facebook" class="facebook fg"></button>
             <button id="btn-google" class="google fg"></button>
           </div>
-          <label>¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
+          <label class="ingresar">¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
           </div>
-      </div>
-    </div>`;
+      </div>`;
   loginUser.innerHTML = templateLogin;
+  loginUser.setAttribute('class', 'container-register column a');
   const formAutenticacion = loginUser.querySelector('#autenticacion');
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');

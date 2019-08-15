@@ -9,7 +9,7 @@ body{
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    background-color: beige;
+    background-color: #FFF;
 }
 
 
@@ -40,8 +40,14 @@ header{
 .hide{
     display: none;
 }
+
+.show-message-error{
+color:rgb(238, 70, 70);
+font-weight: bold;
+}
+
 .container-register{
-    width: 90%;
+    /*width: 90%;*/
     margin: auto;
     height: auto;
     align-items: start;
@@ -73,24 +79,28 @@ header{
   }
   
   .form-group input{
-     height: 40px;  
+     height: 30px;  
      width: 100%;
      border-radius: 20px;
      border: 2px solid #437e58;
      margin: 0.1rem;
      padding: 7px 20px 7px 20px;
+     font-size: 17px;
+
   }
   
   .form-group button{
     height: 50px;
-    width:60%;
-    border-radius: 40px;
+    width:120%;
+    border-radius: 20px;
     border:none;
-    background: #522e4a;
-    color:#5AC39B;
-    margin:1rem;
+    background: #f3d009de;
+    color:#FFF;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 25px;
+    margin: 10px;
+    padding: 7px 20px 7px 20px;
+    
   }
   
   .form-group button:hover{
@@ -98,10 +108,6 @@ header{
     background:black;
     color: #522e4a;  
     
-  }
-  
-  .color-txt-return{
-      color: #59a272;
   }
 
   .wrap{
@@ -142,6 +148,19 @@ header{
   background-image: url(img/google-plus.png);
 }
 
+h2 {
+  padding-bottom: 20px;
+  font-size: 30px;
+  color: rgba(37, 36, 36, 0.712);
+}
+
+.ingresar{
+  color: rgba(37, 36, 36, 0.712);
+  font-size:18px;
+  font-weight: bold;
+  padding: 10px;
+}
+
   @media (min-width: 768px) {
     /****** LOGIN  *****/
   
@@ -150,6 +169,7 @@ header{
     flex-direction: row;
     align-items: center;
     height: 100vh; 
+    margin: 0;
   }
   
   .container-logo{
@@ -171,5 +191,15 @@ header{
 
    .form-group{
     width: 25vw;
+   }
+   .a{
+     display: flex;
+     flex-direction: row;
+   }
+   .b{
+     display: flex;
+     flex-direction: column;
+     width: 50%;
+     height: 100%;
    }
   }
