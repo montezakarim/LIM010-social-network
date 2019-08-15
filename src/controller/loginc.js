@@ -1,5 +1,7 @@
 import
-{ singInLogin, signInFacebook, signInGoogle, logOut } 
+{
+  singInLogin, signInFacebook, signInGoogle, logOut 
+}
   from '../firebase/controllerdata.js';
 
 const changeHash = (hash) => {
@@ -41,15 +43,24 @@ export const signInFacebookClick = (event) => {
   event.preventDefault();
   signInFacebook()
     .then(() => {
+<<<<<<< HEAD
     // Esto te da un token de acceso de Facebook. Puedes usarlo para acceder a la API de Facebook.
       const token = result.credential.accessToken;
       //  La información de usuario registrada.
       const user = result.user;
       console.log('Facebook')
+=======
+      // Esto te da un token de acceso de Facebook. Puedes usarlo para acceder a la API de Facebook.
+      // const token = result.credential.accessToken;
+      // //  La información de usuario registrada.
+      // const user = result.user;
+      // console.log('Facebook')
+>>>>>>> d3d0c83a947aaac5fc8a75124871bcb7008639b4
       changeHash('#/home');
     }).catch((error) => {
       // Manejar errores aquí.
       const errorCode = error.code;
+<<<<<<< HEAD
       const errorMessage = error.message;
       // El correo electrónico de la cuenta del usuario utilizado.
       const email = error.email;
@@ -58,6 +69,16 @@ export const signInFacebookClick = (event) => {
       // if (errorCode === 'auth/account-exists-with-different-credential') {
       //   console.log('Es el mismo usuario');
       //}
+=======
+      // const errorMessage = error.message;
+      // // El correo electrónico de la cuenta del usuario utilizado.
+      // const email = error.email;
+      // // El tipo firebase.auth.AuthCredential que se utilizó.
+      // const credential = error.credential;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        console.log('Es el mismo usuario');
+      }
+>>>>>>> d3d0c83a947aaac5fc8a75124871bcb7008639b4
     });
 };
 
@@ -65,9 +86,15 @@ export const signInGoogleClick = (event) => {
   event.preventDefault();
   return signInGoogle()
     .then(() => {
+<<<<<<< HEAD
       let token = result.credential.accessToken;
       let user = result.user;
       console.log('Google')
+=======
+      // let token = result.credential.accessToken;
+      // let user = result.user;
+      // console.log('Google')
+>>>>>>> d3d0c83a947aaac5fc8a75124871bcb7008639b4
       changeHash('#/home');
     }).catch((error) => {
       const errorCode = error.code;
@@ -80,6 +107,7 @@ export const signInGoogleClick = (event) => {
     });
 };
 
+<<<<<<< HEAD
 export const userCurrent = () => {
   return firebase.auth().currentUser;
 };
@@ -95,3 +123,15 @@ export const logOutOnClick = (evt) => {
     } 
   });
  };
+=======
+export const userCurrent = () => firebase.auth().currentUser;
+
+export const logOutOnClick = (evt) => {
+  evt.preventDefault();
+  logOut()
+    .then(() => {
+    console.log('Hasta Pronto');
+      changeHash('#/');
+    });
+};
+>>>>>>> d3d0c83a947aaac5fc8a75124871bcb7008639b4
