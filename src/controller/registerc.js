@@ -4,7 +4,10 @@ export const functionRegisterClick = (event) => {
   event.preventDefault();
   const email = document.querySelector('#txt-email-add').value;
   const password = document.querySelector('#txt-password-add').value;
+  // const nameUser =document.querySelector('#txt-name-regist-add').value
   const regMessageErrorLabel = document.getElementById('registerMessageError');
+  // console.log(email);
+  // console.log(password);
   functionRegister(email, password)
     .then(() => {
       regMessageErrorLabel.classList.remove('show-message-error');
@@ -26,6 +29,7 @@ export const functionRegisterClick = (event) => {
           break;
         default:
           regMessageErrorLabel.innerHTML = 'Se ha producido un error';
-      }
+          // console.log(`code: "${error.code}" & message: ${error.message}`);
+      } 
     });
 };

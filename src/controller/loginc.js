@@ -5,11 +5,11 @@ import
   from '../firebase/controllerdata.js';
 
 
-const messageErrorLabel = document.getElementById('loginMessageError');
 export const singInLoginClick = (event) => {
   event.preventDefault();
   const email = event.target.email.value;
   const password = event.target.password.value;
+  const messageErrorLabel = document.getElementById('loginMessageError');
   return singInLogin(email, password)
     .then(() => {
       messageErrorLabel.classList.remove('show-message-error');
@@ -40,7 +40,7 @@ export const signInFacebookClick = (event) => {
     .then(() => {
       window.location.hash = '#/home';
     }).catch((error) => {
-      messageErrorLabel.classList.add('show-message-error');
+      // Manejar errores aquí.
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
         // console.log('es el mismo usuario');
@@ -54,7 +54,6 @@ export const signInGoogleClick = (event) => {
     .then(() => {
       window.location.hash = '#/home';
     }).catch((error) => {
-      messageErrorLabel.classList.add('show-message-error');
       const errorCode = error.code;
       if (errorCode === 'auth/account-exists-with-different-credential') {
         // console.log('es el mismo usuario');
