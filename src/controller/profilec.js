@@ -1,5 +1,5 @@
 export const functionProfile = (user, newName) => {
-  return user.updateProfile({
+  user.updateProfile({
     displayName: newName,
     // photoURL: "https://example.com/jane-q-user/profile.jpg"
   }).then(() => {

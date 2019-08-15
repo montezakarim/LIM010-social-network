@@ -10,11 +10,7 @@ export default () => {
           <img class="icon-header" src="img/Yummy.PNG" alt="Yummy" ><a href="#"></a>
         </div> 
         <nav class="wrap">
-<<<<<<< HEAD
-          <a href="#/home"><img src="img/home.png" class ="icon-header" alt=""></a>
-=======
           <a href="#/"><img src="img/home.png" class ="icon-header" alt=""></a>
->>>>>>> d3d0c83a947aaac5fc8a75124871bcb7008639b4
           <a href="#/"><img src="img/login.png" class ="icon-header" alt=""></a>
           <a href="#/profile" id="user-name"><img src="img/logo-user.png" class ="icon-header" alt=""></a>
           <a href="#/"><img src="img/search.png" class ="icon-header" alt=""></a>
@@ -30,7 +26,7 @@ export default () => {
   const userName = home.querySelector('#user-name');
   recoverUserName(userName);
   userName.addEventListener('click', () => {
-    // location.hash = '#profile';
+    window.location.hash = '#profile';
   });
   btnLogOut.addEventListener('click', logOutOnClick);
   return home;
