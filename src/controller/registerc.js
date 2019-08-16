@@ -30,6 +30,6 @@ export const functionRegisterClick = (event) => {
         default:
           regMessageErrorLabel.innerHTML = 'Se ha producido un error';
           // console.log(`code: "${error.code}" & message: ${error.message}`);
-      }
+      } 
     });
 };
