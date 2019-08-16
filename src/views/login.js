@@ -14,7 +14,7 @@ export default () => {
               <input id="email" type="email" placeholder="Usuario" required>
             </div>
             <div class = "form-group">
-              <input id="password" type="password" placeholder="Contraseña" required>
+              <input id="password" type="password" placeholder="U+1F511 Contraseña" required>
             </div>
             <div class = "form-group">
               <button id="btn-login">Iniciar Sesión</button>
