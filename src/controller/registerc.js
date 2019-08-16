@@ -4,16 +4,18 @@ export const functionRegisterClick = (event) => {
   event.preventDefault();
   const email = document.querySelector('#txt-email-add').value;
   const password = document.querySelector('#txt-password-add').value;
-  // const nameUser =document.querySelector('#txt-name-regist-add').value
   const regMessageErrorLabel = document.getElementById('registerMessageError');
-  // console.log(email);
-  // console.log(password);
+
   functionRegister(email, password)
     .then(() => {
       regMessageErrorLabel.classList.remove('show-message-error');
       regMessageErrorLabel.innerHTML = '';
       window.location.hash = '#/';
-      // alert('Usuario creado');
+      return firebase.firestore().collection('users').doc(result.user.uid).set({
+        Username: username,
+        Foto: 'https://image.flaticon.com/icons/png/512/16/16363.png',
+        Email: email
+      });
     })
     .catch((error) => {
       regMessageErrorLabel.classList.add('show-message-error');
@@ -29,7 +31,30 @@ export const functionRegisterClick = (event) => {
           break;
         default:
           regMessageErrorLabel.innerHTML = 'Se ha producido un error';
-          // console.log(`code: "${error.code}" & message: ${error.message}`);
       } 
     });
+};
+
+    
+export const infoUser = (userName, userCorreo, userImage) => {
+  const auth = firebase.auth();
+  return auth.onAuthStateChanged( user => {
+    if (user) {
+      const displayName = user.displayName;
+      const userEmail = user.email;
+      const userPhoto = user.photoURL;
+      if(displayName == null && userPhoto == null){
+        console.log(user);
+        console.log(displayName,userPhoto,userEmail);
+        
+        userName.textContent = 'Usuario Nuevo';
+        userCorreo.textContent = userEmail;
+        userImage.src = './img/profile.png';
+      }else{
+      userName.textContent = displayName;
+      userCorreo.textContent = userEmail;
+      userImage.src = userPhoto;
+      }  
+    } 
+  });
 };
