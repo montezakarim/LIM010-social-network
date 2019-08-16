@@ -8,7 +8,7 @@ export default () => {
       </div>   
       <div class="container-form wrap b">
         <div class="register-login column">
-          <h2 >Bienvenid@ emprendedor!!</h2>
+          <h2 >Bienvenid@ Emprendedor!!</h2>
           <form id="autenticacion" class="form-register" >
             <div class = "form-group">
               <input id="email" type="email" placeholder="Usuario" required>
