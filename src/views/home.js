@@ -7,7 +7,7 @@ export default () => {
     <div class="wrap home">
       <header class="" >
         <div>
-          <img class="icon-header" src="img/Yummy.PNG" alt="Yummy" ><a href="#"></a>
+          <img class="icon-header" src="img/easyStart.png" alt="Easy Start" ><a href="#"></a>
         </div> 
         <nav class="wrap">
           <a href="#/"><img src="img/home.png" class ="icon-header" alt=""></a>
