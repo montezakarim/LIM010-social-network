@@ -1,4 +1,10 @@
-import { singInLogin, signInFacebook, signInGoogle, logOut, } from '../firebase/controllerdata.js';
+import
+{
+  singInLogin, signInFacebook, signInGoogle, logOut,
+}
+  from '../firebase/controllerdata.js';
+
+
 export const singInLoginClick = (event) => {
   event.preventDefault();
   const email = event.target.email.value;

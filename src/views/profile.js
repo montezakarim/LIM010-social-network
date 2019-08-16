@@ -28,11 +28,7 @@ export default () => {
   saveUser.addEventListener('click', () => {
     const user = userCurrent();
     const name = profile.querySelector('#name').value;
-<<<<<<< HEAD
     functionProfile(user, name)
-=======
-    functionProfile(user, name);
->>>>>>> f2ae135d53c81a1b2c0048452369fc53be937733
     .then(() => {
       // Update successful.
       window.location.hash = '#/home';
