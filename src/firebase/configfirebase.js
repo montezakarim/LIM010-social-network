@@ -6,7 +6,7 @@ export const configFirebase = () => {
     projectId: 'sweet-diet-5c3e2',
     storageBucket: '',
     messagingSenderId: '114566620755',
-    appId: '1:114566620755:web:0b0b489f58560e4e'
+    appId: '1:114566620755:web:0b0b489f58560e4e',
   };
   // Initialize Firebase
   firebase.initializeApp(config);

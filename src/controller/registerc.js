@@ -12,7 +12,7 @@ export const functionRegisterClick = (event) => {
     .then(() => {
       regMessageErrorLabel.classList.remove('show-message-error');
       regMessageErrorLabel.innerHTML = '';
-      location.hash = '#/';
+      window.location.hash = '#/';
       // alert('Usuario creado');
     })
     .catch((error) => {
@@ -30,6 +30,6 @@ export const functionRegisterClick = (event) => {
         default:
           regMessageErrorLabel.innerHTML = 'Se ha producido un error';
           // console.log(`code: "${error.code}" & message: ${error.message}`);
-      }
+      } 
     });
 };
