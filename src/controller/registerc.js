@@ -31,11 +31,10 @@ export const functionRegisterClick = (event) => {
           break;
         default:
           regMessageErrorLabel.innerHTML = 'Se ha producido un error';
-      } 
+      }
     });
 };
 
-    
 export const infoUser = (userName, userCorreo, userImage) => {
   const auth = firebase.auth();
   return auth.onAuthStateChanged( user => {
