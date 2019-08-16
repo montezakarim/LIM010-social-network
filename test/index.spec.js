@@ -1,56 +1,62 @@
-// // // // importamos la funcion que vamos a testear
-// // // import { myFunction } from '../src/lib/index';
+// configuracion de mock de firebase
+const firebasemock = require('firebase-mock');
 
-// // // describe('myFunction', () => {
-// // //   it('debería ser una función', () => {
-// // //     expect(typeof myFunction).toBe('function');
-// // //   });
-// // // });
-// // // configurando firebase mock
+const mockauth = new firebasemock.MockFirebase();
+const mockdatabase = new firebasemock.MockFirebase();
+mockauth.autoFlush();
 
+global.firebase = firebasemock.MockFirebaseSdk(
+  // use null if your code does not use RTDB
+  path => (path ? mockdatabase.child(path) : null),
+  () => mockauth,
+);
 
-// const firebasemock = require('firebase-mock');
+// iniciando tests
+import  { singInLogin, signInFacebook, signInGoogle, logOut, functionRegister }
+from '../src/firebase/controllerdata.js';
 
-// const mockauth = new firebasemock.MockAuthentication();
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
-// mockauth.autoFlush();
+// Registro
+describe('registro', () => {
+    it('Deberia poder registrarse', () => functionRegister('laboratoria@lab.com', '123456789')
+      .then((user) => {
+        expect(user.email).toBe('laboratoria@lab.com');
+      }));
+  });
 
-// global.firebase = firebasemock.MockFirebaseSdk(
-//   // use null if your code does not use RTDB
-//   path => (path ? mockdatabase.child(path) : null),
-//   () => mockauth,
-//   () => mockfirestore
-// );
+  // Iniciar sesión
+  describe('inicio de sesion', () => {
+    it('Debería poder iniciar sesion', () => singInLogin('laboratoria@hotmail.la', '123456')
+      .then((user) => {
+        expect(user.email).toBe('laboratoria@hotmail.la');
+      }));
+  });
 
-// // iniciando tests
-// import  { singInLogin, signInFacebook, signInGoogle, logOut }
-// from '../src/firebase/controllerdata.js';
+// Iniciar sesión con facebook  
+describe('sesion iniciada', () => {
+  it('Deberia poder iniciar sesion con Facebook', () => {
+    return signInFacebook()
+      .then(() => {
+        expect('').toBe('');
+      });
+  });
+});
 
-// git status
-// describe('sesion iniciada', () => {
-//   it('Deberia poder iniciar sesion con Facebook', () => {
-//     return signInFacebook()
-//       .then(() => {
-//         expect('').toBe('');
-//       });
-//   });
-// });
+// Iniicar sesión con google
+describe('sesion iniciada', () => {
+  it('Deberia poder iniciar sesion con google', () => {
+    return signInGoogle()
+      .then(() => {
+        expect('').toBe('');
+      });
+  });
+});
 
-// describe('sesion iniciada', () => {
-//   it('Deberia poder iniciar sesion con google', () => {
-//     return signInGoogle()
-//       .then(() => {
-//         expect('').toBe('');
-//       });
-//   });
-// });
-
-// describe('sesion cerrada', () => {
-//   it('deberia poder cerrar sesion', () => {
-//     return logOut()
-//       .then(() => {
-//         expect(firebase.auth().currentUser).toBe(null);
-//       });
-//  });
-// });
+// Cesar sesión
+describe('sesion cerrada', () => {
+  it('deberia poder cerrar sesion', () => {
+    return logOut()
+      .then(() => {
+        expect(firebase.auth().currentUser).toBe(null);
+      });
+ });
+});
