@@ -8,13 +8,13 @@ export default () => {
       </div>   
       <div class="container-form wrap b">
         <div class="register-login column">
-          <h2 >Bienvenid@ Emprendedor!!</h2>
+          <h2 >Bienvenid@!!</h2>
           <form id="autenticacion" class="form-register" >
             <div class = "form-group">
               <input id="email" type="email" placeholder="Usuario" required>
             </div>
             <div class = "form-group">
-              <input id="password" type="password" placeholder="U+1F511 Clave" required>
+              <input id="password" type="password" placeholder="Contraseña" required>
             </div>
             <div class = "form-group">
               <button id="btn-login">Iniciar Sesión</button>

@@ -1,4 +1,4 @@
-import { functionProfile } from '../controller/profilec.js';
+// import { functionProfile } from '../controller/profilec.js';
 import { userCurrent } from '../controller/loginc.js';
 
 export default () => {
@@ -24,14 +24,14 @@ export default () => {
   </div>`;
 
   profileUser.innerHTML = templateProfile;
-  const saveUser = profile.querySelector('#button-save');
-  saveUser.addEventListener('click', () => {
-    const user = userCurrent();
-    const name = profile.querySelector('#name').value;
-    functionProfile(user, name);
-    .then(() => {
-      // Update successful.
-      window.location.hash = '#/home';
-    });
-  });
+  // const saveUser = profile.querySelector('#button-save');
+  // saveUser.addEventListener('click', () => {
+  //   // event.preventDefault();
+  //   const user = userCurrent();
+  //   // const name = profile.querySelector('#name').value;
+  //   functionProfile(user, name).then(function () {
+  //     // Update successful.
+  //     location.hash = '#/home';
+  //   });
+  // });
 };

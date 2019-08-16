@@ -26,7 +26,7 @@ export default () => {
   const userName = home.querySelector('#user-name');
   recoverUserName(userName);
   userName.addEventListener('click', () => {
-    window.location.hash = '#profile';
+    // location.hash = '#profile';
   });
   btnLogOut.addEventListener('click', logOutOnClick);
   return home;
