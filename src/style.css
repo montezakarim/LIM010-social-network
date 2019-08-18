@@ -23,8 +23,7 @@ header{
   display: flex;
   justify-content: center;
   width: 100%;
-  background:#e5eb96f2;
-
+  background-color: rgba(206, 172, 127, 0.671);
 }
 
 .icon-header {
@@ -82,10 +81,11 @@ font-weight: bold;
      height: 30px;  
      width: 100%;
      border-radius: 20px;
-     border: 2px solid #437e58;
+     border: 2px solid #01104198;
      margin: 0.1rem;
      padding: 7px 20px 7px 20px;
      font-size: 17px;
+     cursor: hand;
 
   }
   
@@ -104,12 +104,16 @@ font-weight: bold;
   }
   
   .form-group button:hover{
-    
-    background:black;
-    color: #522e4a;  
-    
+    background:rgba(0, 0, 0, 0.52);
+    color: #13125fe7;  
   }
-
+  .outlinenone {
+    outline: none;
+    border: 0;
+  }
+.radius100{
+  border-radius: 100%;
+}
   .wrap{
     display: flex;
     justify-content: center;
@@ -124,10 +128,10 @@ font-weight: bold;
     display: flex;
     justify-content: center;
     font-size: 16px;
-    color: #FFF;
+    color: rgb(44, 56, 230);
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: rgb(218, 216, 134);
+    background-color: rgba(235, 232, 92, 0.952);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -140,6 +144,7 @@ font-weight: bold;
   height: 45px;
   border-radius:100%;
   background-size: cover;
+  margin: 10px;
 }
 .facebook{
   background-image: url(img/facebook.png);
@@ -150,7 +155,7 @@ font-weight: bold;
 
 h2 {
   padding-bottom: 20px;
-  font-size: 30px;
+  font-size: 25px;
   color: rgba(37, 36, 36, 0.712);
 }
 
@@ -159,6 +164,90 @@ h2 {
   font-size:18px;
   font-weight: bold;
   padding: 10px;
+}
+
+/* Post */
+.postear{
+  width: 100%;
+  height: auto;
+  border: 1px solid #898d8a;
+  border-radius: 2px;
+  margin: 2%;
+}
+.post textarea{
+      width: 100%;
+      height: 100px;
+      resize: none;
+      border: 1px;
+      padding: 7px 20px 7px 20px;
+}
+.comparte{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+.compartir{
+  background:#164e87;
+  height: 35px;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  cursor:pointer;
+}
+/* Perfil User Inicio*/
+#datos-user{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px;
+  background-color: #3b658f9b;
+}
+.datos{
+  display: flex;
+  flex-direction: column;
+} 
+.content{
+  justify-content: flex-start;
+  width: 70%;
+  height: 50%;
+  padding-top: 2%;
+}
+
+#foto {
+  width: 20%;
+  height: auto;
+  border: 1px solid rgb(84, 90, 88);
+  border-radius: 50%;
+  margin: 5%;
+  display: flex;
+  align-self: center;
+}
+.profile-name{
+  font-weight: bold;
+  color:#164e87;
+  font-size: 95%;
+}
+/* Perfil User*/
+.perfil {
+  display: flex;
+  justify-content: center;
+}
+.perfil-contenedor {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+  background: rgba(190, 20, 20, 0.37);
+  width: 331px;
+  height: 507px;
+}
+.nombre-perfil {
+  text-align: center;
+  font-size: x-large;
+  color: blue;
+  font-weight: bold;
+  font-family: cursive;
 }
 
   @media (min-width: 768px) {
@@ -177,11 +266,11 @@ h2 {
     height: 85vh;
     align-items: center;
   }
-  .container-logo  img{
+  /* .container-logo  img{
     width :80%;
     height:80%;
     align-items: center;
-  }
+  }  */
  
   .icon-header {
     width: 60px;
