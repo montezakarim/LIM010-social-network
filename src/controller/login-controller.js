@@ -70,3 +70,12 @@ export const logOutOnClick = (evt) => {
       window.location.hash = '#/';
     });
 };
+
+export const showPassword = () => {
+  const typePass = document.querySelector('#password');
+  if (typePass.type === 'password') {
+    typePass.type = 'text';
+  } else {
+    typePass.type = 'password';
+  }
+};
