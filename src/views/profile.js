@@ -22,14 +22,14 @@ export default () => {
     <div>        
   </div>`;
   profileUser.innerHTML = templateProfile;
-  const saveUser = profile.querySelector('#button-save');
+  const saveUser = profileUser.querySelector('#button-save');
   saveUser.addEventListener('click', () => {
-    const userNombre = divElem.querySelector('#nombre').value;
-        const userApellido = divElem.querySelector('#apellido').value;
-        const userNacimiento = divElem.querySelector('#nacimiento').value;
-        const userTelefono = divElem.querySelector('#telefono').value;
-        const userCorreo = divElem.querySelector('#correo').value;
-        functionProfile(userNombre, userApellido, userNacimiento, userTelefono, userCorreo);
+    const userNombre = profileUser.querySelector('#nombre').value;
+    const userApellido = profileUser.querySelector('#apellido').value;
+    const userNacimiento = profileUser.querySelector('#nacimiento').value;
+    const userTelefono = profileUser.querySelector('#telefono').value;
+    const userCorreo = profileUser.querySelector('#correo').value;
+    functionProfile(userNombre, userApellido, userNacimiento, userTelefono, userCorreo);
   });
-  return profileUser
+  return profileUser;
 };

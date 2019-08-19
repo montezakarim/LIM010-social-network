@@ -2,6 +2,7 @@ import { functionRegister } from '../firebase/controllerdata.js';
 
 export const functionRegisterClick = (event) => {
   event.preventDefault();
+  const userName = document.getElementById('txt-name-regist-add').value;
   const email = document.querySelector('#txt-email-add').value;
   const password = document.querySelector('#txt-password-add').value;
   const regMessageErrorLabel = document.getElementById('registerMessageError');
@@ -12,9 +13,9 @@ export const functionRegisterClick = (event) => {
       regMessageErrorLabel.innerHTML = '';
       window.location.hash = '#/';
       return firebase.firestore().collection('users').doc(result.user.uid).set({
-        Username: username,
+        Username: userName,
         Foto: 'https://image.flaticon.com/icons/png/512/16/16363.png',
-        Email: email
+        Email: email,
       });
     })
     .catch((error) => {
@@ -37,19 +38,18 @@ export const functionRegisterClick = (event) => {
 
 export const infoUser = (userName, userCorreo, userImage) => {
   const auth = firebase.auth();
-  return auth.onAuthStateChanged( user => {
+  return auth.onAuthStateChanged(user => {
     if (user) {
       const displayName = user.displayName;
       const userEmail = user.email;
       const userPhoto = user.photoURL;
-      if(displayName == null && userPhoto == null){
-        console.log(user);
-        console.log(displayName,userPhoto,userEmail);
-        
-        userName.textContent = 'Usuario Nuevo';
+      if (displayName == null && userPhoto == null) {
+        // console.log(user);
+        // console.log(displayName, userPhoto, userEmail);
+        userName.textContent = displayName;
         userCorreo.textContent = userEmail;
-        userImage.src = './img/profile.png';
-      }else{
+        userImage.src = './img/logo-user.png';
+      } else {
       userName.textContent = displayName;
       userCorreo.textContent = userEmail;
       userImage.src = userPhoto;
