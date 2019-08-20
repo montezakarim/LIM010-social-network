@@ -5,22 +5,20 @@ import
 
 export default () => {
   const loginUser = document.createElement('div');
-  const templateLogin = `  
-      <div class="container-form wrap b">
+  const templateLogin = `
+      <div class="banner bnsi-image center-items two-col">
+      </div>  
+      <div class="center-items two-col  flex-c">
         <div class="register-login column">
           <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
-          <h2 >Bienvenido Emprendedor!</h2>
-          <form id="autenticacion" class="form-register" >
-            <div class = "form-group">
-              <input class="outlinenone" id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
-              </div>
-            <div class = "form-group">
-              <input class="outlinenone" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
-            </div>
-            <div class = "form-group">
-              <button class="outlinenone" id="btn-login">Iniciar Sesión</button>
+          <h2 >Bienvenidx Emprendedor!</h2>
+          <form id="autenticacion" class="flex-c center-items" >
+            
+              <input class="input-form " id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
+              <input class="input-form" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
+              <button class="btn-login " id="btn-login">Iniciar Sesión</button>
               <label id="loginMessageError"></label>
-            </div>
+          
           </form>
         </div>
         <div class="column">
@@ -33,7 +31,7 @@ export default () => {
           </div>
       </div>`;
   loginUser.innerHTML = templateLogin;
-  loginUser.setAttribute('class', 'container-register column a');
+  loginUser.setAttribute('class', ' two-col flex-r');
   const formAutenticacion = loginUser.querySelector('#autenticacion');
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');

@@ -3,7 +3,7 @@ export const functionPost = () => {
   const post = document.getElementById('new-post').value;
   // console.log(email);
   console.log(post);
-  firebase.firestore().collection('post').add({
+  firebase.firestore().collection('posts').add({
     Post: post,
   })
     .then((docRef) => {

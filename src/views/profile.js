@@ -1,4 +1,3 @@
-
 export default () => {
   const profileUser = document.createElement('div');
   const templateProfile = `
