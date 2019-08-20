@@ -68,10 +68,12 @@ header{
  }
   .container-logo  img{
     float: left;
-	  width: 250px;
+	  width: 150px;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    
   }
 
   .register-login{  
@@ -116,7 +118,7 @@ header{
   
   .form-group button:hover{
     background:rgba(0, 0, 0, 0.52);
-    color: #13125fe7;  
+    color: #13125fe7;
   }
   .outlinenone {
     outline: none;
@@ -179,111 +181,113 @@ h2 {
   padding: 10px;
 }
 
-/* Post */
-.postear{
-  width: 100%;
+.logo{
+  width: 250px;
   height: auto;
-  border: 1px solid #898d8a;
-  border-radius: 2px;
-  margin: 2%;
+  margin: 30px;
 }
-.post textarea{
-      width: 100%;
-      height: 100px;
-      resize: none;
-      border: 1px;
-      padding: 7px 20px 7px 20px;
+
+.fa-eye:before {
+  float: right;
+  margin-left: 210px;
+  margin-top: -35px;
+  width: 30px;
 }
-.comparte{
+.fa-envelope:before {
+    float: right;
+  margin-left: 210px;
+  margin-top: -35px;
+  width: 30px;
+}
+
+/* publicacion*/
+.wall-feed {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.margin-left {
+  margin-left: 1.5%;
+}
+.form-post{
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  margin-top: 2%;
+  border-radius: 7px;
+  border:solid #f3d009de;
+  padding: 2%;
+}
+
+.input-comment {
+  height: 80px;
+  border-radius: 7px;
+  border: none;
+  border:solid 1px #ccc;
+  margin-bottom: 1%;
+  width: 100%;
+}
+.btn-comment {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   width: 100%;
 }
-.compartir{
-  background:#164e87;
-  height: 35px;
-  border-radius: 5px;
-  color: #fff;
-  border: none;
-  cursor:pointer;
-}
-/* Perfil User Inicio*/
-#datos-user{
+.btn-comment-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  border: 1px;
-  background-color: #3b658f9b;
-}
-.datos{
-  display: flex;
-  flex-direction: column;
-} 
-.content{
-  justify-content: flex-start;
-  width: 70%;
-  height: 50%;
-  padding-top: 2%;
+  justify-content: flex-end;
 }
 
-#foto {
+.privacy {
+  align-self: flex-end;
+  background-color: #f3d009de;
+  color: white;
+  font-weight: bold;
+  margin-right: 3%;
+  margin-left: 3%;
+  padding: 3.2%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.privacy:hover {
+  background-color: white;
+  color:#f3d009de;
+}
+.font-weight-privacy {
+  font-weight: bold;
+}
+
+.btn-post {
+  color: white;
+  font-weight: bold;
+  background-color: #f3d009de;
+  cursor: pointer;
+}
+
+.btn-post:hover {
+  color: #f3d009de;
+  font-weight: bold;
+  background-color: white;
+}
+.btn-compartir {
+  border: none;
+  border-radius: 13px;
+}
+
+.foto-user{
   width: 20%;
   height: auto;
   border: 1px solid rgb(84, 90, 88);
-  border-radius: 50%;
+  border-radius: 20%;
   margin: 5%;
   display: flex;
   align-self: center;
 }
-.profile-name{
-  font-weight: bold;
-  color:#164e87;
-  font-size: 95%;
-}
-/* Perfil User*/
-.perfil {
-  display: flex;
-  justify-content: center;
-}
-.perfil-contenedor {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: center;
-  background: rgba(190, 20, 20, 0.37);
-  width: 331px;
-  height: 507px;
-}
-.nombre-perfil {
-  text-align: center;
-  font-size: x-large;
-  color: blue;
-  font-weight: bold;
-  font-family: cursive;
-}
-.formulario-post{
-  margin: auto;
-  padding: 10px 30px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  border-radius: 7px;
-  font-size: 15px;
-  text-align: center;
-}
-.imagen-post{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.botones-post{
-  margin: 10px 10px 10px 10px;
-  border-radius: 8px;
-  padding: 2px;
-  color: #ffffffc5;
-  background: #f3d009de;
 
-}
   @media (min-width: 700px) {
     /****** LOGIN  *****/
   
@@ -293,18 +297,20 @@ h2 {
     align-items: center;
     height: 100vh; 
     margin: 0;
+  
   }
   
-  .container-logo img{
+  .container-logo {
     width: 100%;
-    height: 100%;
-    align-items: center; 
+    height: 85vh;
+    align-items: center;
+    background-image: url(../src/img/pantalla1.png);
+    left: 0px;
   }
   .logo{
-    float: left;
-    width: 300px;
-    height: auto;
-  }
+    width :300px;
+    align-items: center;
+  }  */
  
   .icon-header {
     width: 60px;

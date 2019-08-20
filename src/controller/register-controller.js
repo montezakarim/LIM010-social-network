@@ -2,20 +2,20 @@ import { functionRegister } from '../firebase/controllerdata.js';
 
 export const functionRegisterClick = (event) => {
   event.preventDefault();
-  const userName = document.getElementById('txt-name-regist-add').value;
-  const email = document.querySelector('#txt-email-add').value;
-  const password = document.querySelector('#txt-password-add').value;
+  const email = document.getElementById('txt-email-add').value;
+  const password = document.getElementById('txt-password-add').value;
   const regMessageErrorLabel = document.getElementById('registerMessageError');
-
+  const name = document.getElementById('txt-name-regist-add').value;
   functionRegister(email, password)
     .then(() => {
       regMessageErrorLabel.classList.remove('show-message-error');
       regMessageErrorLabel.innerHTML = '';
+      const user = firebase.auth().currentUser;
+      console.log(user);
       window.location.hash = '#/';
-      return firebase.firestore().collection('users').doc(result.user.uid).set({
-        Username: userName,
-        Foto: 'https://image.flaticon.com/icons/png/512/16/16363.png',
-        Email: email,
+      firebase.firestore().collection('users').add({
+        Usuario: name,
+        Correo: email,
       });
     })
     .catch((error) => {

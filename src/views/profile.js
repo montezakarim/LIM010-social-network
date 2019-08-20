@@ -1,4 +1,3 @@
-import { functionProfile } from '../controller/profilec.js';
 
 export default () => {
   const profileUser = document.createElement('div');
@@ -24,12 +23,21 @@ export default () => {
   profileUser.innerHTML = templateProfile;
   const saveUser = profileUser.querySelector('#button-save');
   saveUser.addEventListener('click', () => {
+<<<<<<< HEAD
     const userNombre = profileUser.querySelector('#nombre').value;
     const userApellido = profileUser.querySelector('#apellido').value;
     const userNacimiento = profileUser.querySelector('#nacimiento').value;
     const userTelefono = profileUser.querySelector('#telefono').value;
     const userCorreo = profileUser.querySelector('#correo').value;
     functionProfile(userNombre, userApellido, userNacimiento, userTelefono, userCorreo);
+=======
+    // const userNombre = profileUser.querySelector('#nombre').value;
+    // const userApellido = profileUser.querySelector('#apellido').value;
+    // const userNacimiento = profileUser.querySelector('#nacimiento').value;
+    // const userTelefono = profileUser.querySelector('#telefono').value;
+    // const userCorreo = profileUser.querySelector('#correo').value;
+    // functionProfile(userNombre, userApellido, userNacimiento, userTelefono, userCorreo);
+>>>>>>> 527a7ed36fcbb676fffdf52a7786bf4a9717e37d
   });
   return profileUser;
 };

@@ -1,3 +1,4 @@
+// Autentificación
 export const functionRegister = (email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password);
 };
@@ -16,4 +17,8 @@ export const signInGoogle = () => {
 
 export const logOut = () => firebase.auth().signOut();
 
+<<<<<<< HEAD
 export const userCurrent = () => firebase.auth().currentUser;
+=======
+// Post
+>>>>>>> 527a7ed36fcbb676fffdf52a7786bf4a9717e37d

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { singInLoginClick, signInFacebookClick, signInGoogleClick, showPassword } from '../controller/loginc.js';
 
 export default () => {
@@ -7,15 +8,33 @@ export default () => {
       <div class="container-logo b" >
         <img  src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
       </div>   
+=======
+import
+{
+  singInLoginClick, signInFacebookClick, signInGoogleClick, showPassword,
+} from '../controller/login-controller.js';
+
+export default () => {
+  const loginUser = document.createElement('div');
+  const templateLogin = `  
+>>>>>>> 527a7ed36fcbb676fffdf52a7786bf4a9717e37d
       <div class="container-form wrap b">
         <div class="register-login column">
+          <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
           <h2 >Bienvenido Emprendedor!</h2>
           <form id="autenticacion" class="form-register" >
             <div class = "form-group">
+<<<<<<< HEAD
               <input class="outlinenone" id="email" type="email" placeholder="Usuario" required/> <i class="fas fa-envelope"></i>
             </div>
             <div class = "form-group">
               <input class="outlinenone" id="password" type="password" placeholder="Contraseña" required/><i id="show-eye" class="far fa-eye"></i>
+=======
+              <input class="outlinenone" id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
+              </div>
+            <div class = "form-group">
+              <input class="outlinenone" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
+>>>>>>> 527a7ed36fcbb676fffdf52a7786bf4a9717e37d
             </div>
             <div class = "form-group">
               <button class="outlinenone" id="btn-login">Iniciar Sesión</button>
