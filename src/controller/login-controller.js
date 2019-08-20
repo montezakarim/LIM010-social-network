@@ -15,11 +15,6 @@ export const singInLoginClick = (event) => {
       messageErrorLabel.classList.remove('show-message-error');
       messageErrorLabel.innerHTML = '';
       window.location.hash = '#/home';
-      firebase.auth().onAuthStateChanged(user => { // para detectar que el usuario ya se ha logueado
-        if (user) {
-          location.hash = '#/home';
-        }
-      });
     })
     .catch((error) => {
       messageErrorLabel.classList.add('show-message-error');
@@ -55,7 +50,7 @@ export const signInFacebookClick = (event) => {
 
 export const signInGoogleClick = (event) => {
   event.preventDefault();
-  signInGoogle()
+  return signInGoogle()
     .then(() => {
       window.location.hash = '#/home';
     }).catch((error) => {
@@ -66,17 +61,10 @@ export const signInGoogleClick = (event) => {
     });
 };
 
-export const showPassword = () => {
-  const typePass = document.querySelector('#password');
-  if (typePass.type === 'password') {
-    typePass.type = 'text';
-  } else {
-    typePass.type = 'password';
-  }
-};
+export const userCurrent = () => firebase.auth().currentUser;
 
-export const logOutOnClick = (evt) => {
-  evt.preventDefault();
+export const logOutOnClick = (event) => {
+  event.preventDefault();
   logOut()
     .then(() => {
       window.location.hash = '#/';

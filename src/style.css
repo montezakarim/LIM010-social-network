@@ -12,15 +12,18 @@ body{
     background-color: #FFF;
 }
 
+
+.logo{
+	float: left;
+  width: 140px;
+	height: auto;
+}
+
 header{
   display: flex;
   justify-content: center;
-  background-color: rgba(244, 248, 15, 0.534);
-  padding-top: 15px;
-  padding-bottom: 15px;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  background-color: rgba(206, 172, 127, 0.671);
 }
 
 .icon-header {
@@ -36,23 +39,10 @@ header{
 .hide{
     display: none;
 }
-.fa-eye:before {
-  float: right;
-  margin-left: 210px;
-  margin-top: -35px;
-  width: 30px;
-}
-.fa-envelope:before {
-    float: right;
-  margin-left: 210px;
-  margin-top: -35px;
-  width: 30px;
-}
 
 .show-message-error{
-  color:rgba(16, 30, 219, 0.931);
-  font-weight: bold;
-  display: inline-block;
+color:rgb(238, 70, 70);
+font-weight: bold;
 }
 
 .container-register{
@@ -141,12 +131,10 @@ header{
     display: flex;
     justify-content: center;
     font-size: 16px;
-    font-weight: bold;
-    font-family: 'Pacifico';
-    color: rgba(3, 10, 109, 0.836);
+    color: rgb(44, 56, 230);
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color:  rgba(244, 248, 15, 0.534);;
+    background-color: rgba(235, 232, 92, 0.952);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -288,7 +276,7 @@ h2 {
   align-self: center;
 }
 
-  @media (min-width: 700px) {
+  @media (min-width: 768px) {
     /****** LOGIN  *****/
   
   .container-register{
@@ -328,11 +316,7 @@ h2 {
    .b{
      display: flex;
      flex-direction: column;
-     width: 100%;
+     width: 50%;
      height: 100%;
    }
-   h2 {
-    width: 360px;
-    font-size: 30px;
-  }
   }
