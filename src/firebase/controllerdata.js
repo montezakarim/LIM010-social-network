@@ -17,4 +17,17 @@ export const signInGoogle = () => {
 
 export const logOut = () => firebase.auth().signOut();
 
+export const userCurrent = () => firebase.auth().currentUser;
+
 // Post
+export const addPost = (newPost, user, privacyUser) => firebase.firestore().collection('posts').add({
+  notes: newPost,
+  user: user.uid,
+  userName: user.displayName,
+  privacity: privacyUser,
+  timePost: (new Date()).toLocaleDateString(),
+});
+
+export const deletePostFirebase = (id) => {
+  return firebase.firestore().collection('post').doc(id).delete();
+};

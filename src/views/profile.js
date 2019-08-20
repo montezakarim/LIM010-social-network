@@ -1,34 +1,36 @@
+import { getData, updateProfile } from '../controller/profile-controller.js';
 
 export default () => {
   const profileUser = document.createElement('div');
   const templateProfile = `
   <div id="vista-profile" class="perfil">
     <div class="perfil-contenedor">
-      <label class="nombre-perfil">Perfil de Usuario</label>
-      <img src='./img/profile.png' id="foto"/>
-      <label><strong>Nombres:</strong></label>
-      <input id="nombre" type="text"/>
-      <label><strong>Apellidos:</strong></label>
-      <input id="apellido" type="text"/>
-      <label><strong>Lugar de Nacimiento:</strong></label>
-      <input id="nacimiento" type="text"/>
-      <label><strong>Celular/Teléfono:</strong></label>
-      <input id="telefono" type="text"/>
-      <label><strong>Email:</strong></label>
-      <input id="correo" type="text"/>
-      <button id="editar-perfil">Editar</button>
-      <button id="button-save">Guardar</button>
-    <div>        
-  </div>`;
+      <h2>Profile</h2> 
+      <img src="http://www.cavsi.com/preguntasrespuestas/images/que-es-usuario.jpg">
+      <input id='fileid' type='file' hidden/>
+      <input id='fileButton' type='button' value='Upload MB' />
+      <form>
+        <input type="text" value="" class="inputForm" id="name">
+        <input type="text" value="" disabled class="inputForm" id="email">
+        <input type="submit" class="button-login" id="button-save" value="Guardar">
+      </form>
+    </div>
+  </div>
+    `;
   profileUser.innerHTML = templateProfile;
+  const name = profileUser.querySelector('#name');
+  const email = profileUser.querySelector('#email');
+  getData(name, email);
   const saveUser = profileUser.querySelector('#button-save');
-  saveUser.addEventListener('click', () => {
-    // const userNombre = profileUser.querySelector('#nombre').value;
-    // const userApellido = profileUser.querySelector('#apellido').value;
-    // const userNacimiento = profileUser.querySelector('#nacimiento').value;
-    // const userTelefono = profileUser.querySelector('#telefono').value;
-    // const userCorreo = profileUser.querySelector('#correo').value;
-    // functionProfile(userNombre, userApellido, userNacimiento, userTelefono, userCorreo);
+
+  saveUser.addEventListener('click', (event) => {
+    event.preventDefault();
+    const newName = profileUser.querySelector('#name').value;
+    const newEmail = profileUser.querySelector('#email').value;
+    updateProfile(newName, newEmail).then(() => {
+      // Update successful.
+      window.location.hash = '#/home';
+    });
   });
   return profileUser;
 };

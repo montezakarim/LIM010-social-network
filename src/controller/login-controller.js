@@ -63,8 +63,8 @@ export const signInGoogleClick = (event) => {
 
 export const userCurrent = () => firebase.auth().currentUser;
 
-export const logOutOnClick = (evt) => {
-  evt.preventDefault();
+export const logOutOnClick = (event) => {
+  event.preventDefault();
   logOut()
     .then(() => {
       window.location.hash = '#/';
