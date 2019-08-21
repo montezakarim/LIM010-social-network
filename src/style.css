@@ -22,10 +22,10 @@
   justify-content: center;
 }
 
-.size {
+/* .size {
   min-height: 100vh;
   width: 100%;
-}
+} */
 .logo {
   height: 6em;/*verificar si el logo no se ve muy grande en el celular*/
   /*border-radius: 2em;*/
