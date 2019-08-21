@@ -63,10 +63,19 @@ export const signInGoogleClick = (event) => {
 
 export const userCurrent = () => firebase.auth().currentUser;
 
-export const logOutOnClick = (evt) => {
-  evt.preventDefault();
+export const logOutOnClick = (event) => {
+  event.preventDefault();
   logOut()
     .then(() => {
       window.location.hash = '#/';
     });
+};
+
+export const showPassword = () => {
+  const typePass = document.querySelector('#password');
+  if (typePass.type === 'password') {
+    typePass.type = 'text';
+  } else {
+    typePass.type = 'password';
+  }
 };

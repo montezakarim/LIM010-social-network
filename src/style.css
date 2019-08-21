@@ -1,30 +1,72 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-* { margin :0;
-    padding: 0;
-}
-body{
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-    background-color: #FFF;
+*{
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+.flex-r {
+  /* display: flex; */
+  flex-direction: row;
+}
 
-.logo{
+.center-items {
+  align-items: center;
+  justify-content: center;
+}
+
+.size {
+  min-height: 100vh;
+  width: 100%;
+}
+.logo {
+  height: 6em;/*verificar si el logo no se ve muy grande en el celular*/
+  /*border-radius: 2em;*/
+  margin: 1em;
+}
+.input-form {
+  height: 3em;
+  width: 20em;
+  border-radius: 2em;
+  /* border: none; */
+  margin: 1em;
+  outline-style: none;
+  padding: 1em;
+}
+.btn-login{
+  height: 3em;
+  width: 20em;
+  border-radius: 2em;
+  margin: 1em;
+  outline-style: none;
+  padding: 1em;
+  color: #FFF;
+  background-color: red;
+}
+.error-registra{
+  color: black;
+  font-size: 15px;
+  margin: 0 1em;
+  margin-bottom: 5px;
+}
+/* .logo1{
 	float: left;
   width: 140px;
 	height: auto;
-}
+} */
 
 header{
   display: flex;
   justify-content: center;
   width: 100%;
-  background:#e5eb96f2;
-
+  background-color: rgba(206, 172, 127, 0.671);
 }
 
 .icon-header {
@@ -41,16 +83,17 @@ header{
     display: none;
 }
 
-.show-message-error{
+/* .show-message-error{
 color:rgb(238, 70, 70);
 font-weight: bold;
-}
+} */
 
 .container-register{
     /*width: 90%;*/
     margin: auto;
     height: auto;
     align-items: start;
+    font-family: 'Pacifico', cursive;
   }
  .home{
   display: flex;
@@ -58,10 +101,12 @@ font-weight: bold;
  }
   .container-logo  img{
     float: left;
-	  width: 200px;
+	  width: 150px;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    
   }
 
   .register-login{  
@@ -78,16 +123,7 @@ font-weight: bold;
     align-items: center;
   }
   
-  .form-group input{
-     height: 30px;  
-     width: 100%;
-     border-radius: 20px;
-     border: 2px solid #437e58;
-     margin: 0.1rem;
-     padding: 7px 20px 7px 20px;
-     font-size: 17px;
 
-  }
   
   .form-group button{
     height: 50px;
@@ -104,12 +140,16 @@ font-weight: bold;
   }
   
   .form-group button:hover{
-    
-    background:black;
-    color: #522e4a;  
-    
+    background:rgba(0, 0, 0, 0.52);
+    color: #13125fe7;
   }
-
+  .outlinenone {
+    outline: none;
+    border: 0;
+  }
+.radius100{
+  border-radius: 100%;
+}
   .wrap{
     display: flex;
     justify-content: center;
@@ -124,10 +164,10 @@ font-weight: bold;
     display: flex;
     justify-content: center;
     font-size: 16px;
-    color: #FFF;
+    color: rgb(44, 56, 230);
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: rgb(218, 216, 134);
+    background-color: rgba(235, 232, 92, 0.952);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -140,6 +180,7 @@ font-weight: bold;
   height: 45px;
   border-radius:100%;
   background-size: cover;
+  margin: 10px;
 }
 .facebook{
   background-image: url(img/facebook.png);
@@ -150,36 +191,171 @@ font-weight: bold;
 
 h2 {
   padding-bottom: 20px;
-  font-size: 30px;
+  font-size: 20px;
   color: rgba(37, 36, 36, 0.712);
 }
 
 .ingresar{
   color: rgba(37, 36, 36, 0.712);
-  font-size:18px;
+  font-size:15px;
   font-weight: bold;
   padding: 10px;
+  font-family: 'Pacifico', cursive;
+}
+
+.logo1{
+  width: 250px;
+  height: auto;
+  margin: 30px;
+}
+
+.fa-eye:before {
+  float: right;
+  margin-left: 210px;
+  margin-top: -35px;
+  width: 30px;
+}
+.fa-envelope:before {
+    float: right;
+  margin-left: 210px;
+  margin-top: -35px;
+  width: 30px;
+}
+
+/* publicacion*/
+.wall-feed {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.margin-left {
+  margin-left: 1.5%;
+}
+.form-post{
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  margin-top: 2%;
+  border-radius: 7px;
+  border:solid #f3d009de;
+  padding: 2%;
+}
+
+.input-comment {
+  height: 80px;
+  border-radius: 7px;
+  border: none;
+  border:solid 1px #ccc;
+  margin-bottom: 1%;
+  width: 100%;
+}
+.btn-comment {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+.btn-comment-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.privacy {
+  align-self: flex-end;
+  background-color: #f3d009de;
+  color: white;
+  font-weight: bold;
+  margin-right: 3%;
+  margin-left: 3%;
+  padding: 3.2%;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.privacy:hover {
+  background-color: white;
+  color:#f3d009de;
+}
+.font-weight-privacy {
+  font-weight: bold;
+}
+
+.btn-post {
+  color: white;
+  font-weight: bold;
+  background-color: #f3d009de;
+  cursor: pointer;
+}
+
+.btn-post:hover {
+  color: #f3d009de;
+  font-weight: bold;
+  background-color: white;
+}
+.btn-compartir {
+  border: none;
+  border-radius: 13px;
+}
+
+.foto-user{
+  width: 20%;
+  height: auto;
+  border: 1px solid rgb(84, 90, 88);
+  border-radius: 20%;
+  margin: 5%;
+  display: flex;
+  align-self: center;
 }
 
   @media (min-width: 768px) {
     /****** LOGIN  *****/
   
-  .container-register{
+  .flex-c {
+      display: flex;
+      flex-direction: column;
+  }
+  .flex-r{
+      display: flex;
+      flex-direction: row; 
+  }
+  .two-col{
+      display: flex;
+      /* flex-direction: column; */
+      width: 100%;
+      height: 100vh;
+  }
+  .banner {
+    flex-grow: 1;
+    width: 100%;
+    background-size: cover;
+}
+  .bnsi-image{
+    background-image: url(./img/pantalla3.jpg);
+  }
+  .bnsi-image1{
+    background-image: url(./img/pantalla3.jpg);
+  }
+  /* .container-register{
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 100vh; 
     margin: 0;
+  
   }
   
-  .container-logo{
-    width: 58%;
+  .container-logo {
+    width: 100%;
     height: 85vh;
     align-items: center;
+    background-image: url(../src/img/pantalla1.png);
+    left: 0px;
   }
-  .container-logo  img{
-    width :80%;
-    height:80%;
+  .logo{
+    width :300px;
     align-items: center;
   }
  
@@ -194,12 +370,12 @@ h2 {
    }
    .a{
      display: flex;
-     flex-direction: row;
+     flex-difwfrection: row;
    }
    .b{
      display: flex;
      flex-direction: column;
      width: 50%;
      height: 100%;
-   }
+   } */
   }
