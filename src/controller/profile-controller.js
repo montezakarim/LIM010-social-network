@@ -1,4 +1,4 @@
-import { userCurrent } from '../firebase/controllerdata.js';
+import { userCurrent } from '../module/controllerdata.js';
 
 export const updateUserName = (user, newName) => user.updateProfile({
   displayName: newName,

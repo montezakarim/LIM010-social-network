@@ -1,5 +1,5 @@
 import { changeView } from './controller/routers.js';
-import { configFirebase } from './firebase/configfirebase.js';
+import { configFirebase } from './module/configfirebase.js';
 
 const init = () => {
   configFirebase();

@@ -1,6 +1,5 @@
 import { logOutOnClick } from '../controller/login-controller.js';
 import { functionPostAdd } from '../controller/post-controller.js';
-// import { update } from '../controller/post-controller.js';
 
 export default () => {
   const home = document.createElement('div');
@@ -43,8 +42,6 @@ export default () => {
         
         </section>
       </div>
-      <div class="form-post" id="tabla">
-      </div>
     </div>
     `;
   home.innerHTML = templateHome;
@@ -56,11 +53,4 @@ export default () => {
   const btnToPost = home.querySelector('#btn-post');
   btnToPost.addEventListener('click', functionPostAdd);
   return home;
-
-
-
-  // // ver toda los post
-  // const btnUp = viewHome.querySelector('#btn-up');
-  // btnUp.addEventListener('click',update);
-  // return viewHome;
 };

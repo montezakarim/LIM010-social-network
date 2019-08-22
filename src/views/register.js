@@ -6,28 +6,35 @@ export default () => {
 
 
   const templateRegister = `
-  <div class="banner bnsu-image1 two-col center-items">
-  </div>
-    <div class="center-items two-col  flex-c" id="registrar">
-    <div class="register-login column">
-    <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
-      
-        <h2 >Crear Cuenta!</h2>
-        <form class="flex-c center-items" action="">
-
-          <input class="input-form" id="txt-name-regist-add" type="email" placeholder="Usuario" required>
-          <input class="input-form" id="txt-email-add" type="text" placeholder="Email">
-          <input class="input-form" id="txt-password-add" type="password" placeholder="Password">
-          <button class="btn-login" id="btn-add" >Registrar</button>
-          <label class="error-registra" id="registerMessageError"></label>
-          <a class="" href="#/"><span id="register" class="bold">Iniciar Sesión</span></a>
+    <div class="container-form wrap b" id="registrar">
+      <img class="logo" src="img/easyStart.png" alt="logo easy start" ><a href="#"></a>
+      <article class = "register-login column">
+        <h2 class="title-register">Regístrate con tu email</h2>
+        <form class="form-register column" action="">
+          <div class = "form-group">
+            <input class="input-register outlinenone" id="txt-name-regist-add" type="text" placeholder="Nombre">
+          </div>
+          <div class = "form-group">
+            <input class="input-register outlinenone" id="txt-email-add" type="text" placeholder="Email">
+          </div>
+          <div class = "form-group">
+            <input class="input-register outlinenone" id="txt-password-add" type="password" placeholder="Password">
+          </div>
+          <div class = "form-group">
+            <button class="outlinenone" id="btn-add" >Registrar</button>
+          </div>
+          <label  id="registerMessageError"></label>
+          <a class="ingresar" href="#/"><span id="register" class="bold">Iniciar Sesión</span></a>
         </form>
-  
-      </div>
+      </article> 
     </div>`;
   registerUser.innerHTML = templateRegister;
-  registerUser.setAttribute('class', ' two-col flex-r');
   const btnAdd = registerUser.querySelector('#btn-add');
-  btnAdd.addEventListener('click', functionRegisterClick);
+  const foto = 'https://image.flaticon.com/icons/png/512/16/16363.png';
+  btnAdd.addEventListener('click', () => {
+    const name = document.getElementById('txt-name-regist-add').value;
+    const email = document.getElementById('txt-email-add').value;
+    const password = document.getElementById('txt-password-add').value;
+    functionRegisterClick(email, password, name, foto)});
   return registerUser;
 };

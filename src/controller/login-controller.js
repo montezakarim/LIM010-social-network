@@ -2,7 +2,7 @@ import
 {
   singInLogin, signInFacebook, signInGoogle, logOut,
 }
-  from '../firebase/controllerdata.js';
+  from '../module/controllerdata.js';
 
 
 export const singInLoginClick = (event) => {

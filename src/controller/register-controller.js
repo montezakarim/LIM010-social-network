@@ -1,22 +1,39 @@
-import { functionRegister } from '../firebase/controllerdata.js';
-
-export const functionRegisterClick = (event) => {
+import { functionRegister, userCurrent } from '../module/controllerdata.js';
+//Registramos un nuevo usuario 
+export const obtenerNombreEmail = (email) => {
+  // Obtención de datos de un documento
+  firebase.firestore().collection('users').where("Email", "==", email).get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => { // forEach -> se repite por cada documento que este en users
+            // console.log(doc.id, " => ", doc.data());
+            console.log(doc.data().Nombre);// consoleamos el nombre que hay en el documento
+            console.log(doc.data().Email);// consoleamos el nombre que hay en el documento
+        });
+    })
+    .catch((error) => {
+        console.log("Error al obtener documentos: ", error);
+    });
+  };
+const crearUsuario = (id, name, email, foto) => {
+  firebase.firestore().collection('users').doc(id).set({ // agrega datos en la colección
+    ID: id,
+    Nombre: name,
+    Email: email,
+    Foto: foto
+  });
+};
+export const functionRegisterClick= (email, password, name, foto) => {
   event.preventDefault();
-  const email = document.getElementById('txt-email-add').value;
-  const password = document.getElementById('txt-password-add').value;
   const regMessageErrorLabel = document.getElementById('registerMessageError');
-  const name = document.getElementById('txt-name-regist-add').value;
   functionRegister(email, password)
     .then(() => {
       regMessageErrorLabel.classList.remove('show-message-error');
       regMessageErrorLabel.innerHTML = '';
-      const user = firebase.auth().currentUser;
+      const user = userCurrent();
       console.log(user);
+      obtenerNombreEmail(email); // obtenemos nombre y email del usuario creado
+      crearUsuario(user.uid, name, email, foto);// creamos el usuario en firebase
       window.location.hash = '#/';
-      firebase.firestore().collection('users').add({
-        Usuario: name,
-        Correo: email,
-      });
       console.log(name);
       console.log(email);
     })
