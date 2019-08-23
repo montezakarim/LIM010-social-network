@@ -6,7 +6,8 @@ export default () => {
 
 
   const templateRegister = `
-  <div class="banner bnsu-image1 two-col center-items">
+  <div class="banner bnsu-image two-col center-items">
+    <img  class="hide" src="img/pantalla3.png" alt="imagen">
   </div>
     <div class="center-items two-col  flex-c" id="registrar">
     <div class="register-login column">

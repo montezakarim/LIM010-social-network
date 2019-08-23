@@ -14,7 +14,6 @@ export const getData = (name, email) => {
   firebase.firestore().collection('users').doc(user.uid).get()
     .then((doc) => {
       if (doc.exists) {
-      // console.log('Document data:', doc.data().name);
         name.value = doc.data().name;
         email.value = doc.data().email;
       } else {

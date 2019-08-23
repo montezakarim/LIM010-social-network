@@ -22,12 +22,13 @@
   justify-content: center;
 }
 
-/* .size {
+.size {
   min-height: 100vh;
   width: 100%;
-} */
+}
 .logo {
-  height: 6em;
+  height: 6em;/*verificar si el logo no se ve muy grande en el celular*/
+  /*border-radius: 2em;*/
   margin: 1em;
 }
 .input-form {
@@ -238,7 +239,7 @@ h2 {
   width: 94%;
   margin-top: 2%;
   border-radius: 7px;
-  border:solid #f3d009de;
+  border:solid #676769de;
   padding: 2%;
 }
 
@@ -264,7 +265,7 @@ h2 {
 
 .privacy {
   align-self: flex-end;
-  background-color: #f3d009de;
+  background-color: #0d18dcde;
   color: white;
   font-weight: bold;
   margin-right: 3%;
@@ -285,8 +286,9 @@ h2 {
 .btn-post {
   color: white;
   font-weight: bold;
-  background-color: #f3d009de;
+  background-color: #0d18dcde;
   cursor: pointer;
+  margin-right: 4px;
 }
 
 .btn-post:hover {
@@ -307,6 +309,9 @@ h2 {
   margin: 5%;
   display: flex;
   align-self: center;
+}
+.hide{
+  display: none;
 }
 
   @media (min-width: 768px) {
@@ -332,10 +337,10 @@ h2 {
     background-size: cover;
 }
   .bnsi-image{
-    background-image: url(./img/pantalla3.jpg);
+    background-image: url(./img/pantalla3.jpg)!important ;
   }
-  .bnsi-image1{
-    background-image: url(./img/pantalla3.jpg);
+  .hide{
+    display: block;
   }
   /* .container-register{
     display: flex;

@@ -1,8 +1,10 @@
-
 import { logOutOnClick } from '../controller/login-controller.js';
 import { functionPostAdd } from '../controller/post-controller.js';
+import { listPosts } from './post.js';
+// import { update } from '../controller/post-controller.js';
+// const array = ['hola1','hola2', 'hola3'];
 
-export default () => {
+export default (array1) => {
   const home = document.createElement('div');
   const templateHome = `
     <div class="wrap home">
@@ -43,15 +45,28 @@ export default () => {
         
         </section>
       </div>
-    </div>
-    `;
+      <div class="form-post" id="tabla">
+      </div>
+    </div> `;
   home.innerHTML = templateHome;
   const btnLogOut = home.querySelector('#logout');
 
-  btnLogOut.addEventListener('click', logOutOnClick);
+  const totalView = home.querySelector('#tabla');
+  // const array=[1,2,3,4];
+  for (let i=0; i<array1.length; i++){
+  totalView.appendChild(listPosts(array1[i]));
+  }
+
+  //   data.forEach((elemento) => {
+  // });
+
 
   // Publicar post
   const btnToPost = home.querySelector('#btn-post');
   btnToPost.addEventListener('click', functionPostAdd);
+
+  btnLogOut.addEventListener('click', logOutOnClick);
+
   return home;
 };
+
