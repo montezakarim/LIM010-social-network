@@ -15,6 +15,7 @@ export const singInLoginClick = (event) => {
       messageErrorLabel.classList.remove('show-message-error');
       messageErrorLabel.innerHTML = '';
       window.location.hash = '#/home';
+
     })
     .catch((error) => {
       messageErrorLabel.classList.add('show-message-error');

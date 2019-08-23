@@ -6,25 +6,22 @@ export default () => {
 
 
   const templateRegister = `
-    <div class="container-form wrap b" id="registrar">
-      <img class="logo" src="img/easyStart.png" alt="logo easy start" ><a href="#"></a>
-      <article class = "register-login column">
-        <h2 class="title-register">Regístrate con tu email</h2>
-        <form class="form-register column" action="">
-          <div class = "form-group">
-            <input class="input-register outlinenone" id="txt-name-regist-add" type="text" placeholder="Nombre">
-          </div>
-          <div class = "form-group">
-            <input class="input-register outlinenone" id="txt-email-add" type="text" placeholder="Email">
-          </div>
-          <div class = "form-group">
-            <input class="input-register outlinenone" id="txt-password-add" type="password" placeholder="Password">
-          </div>
-          <div class = "form-group">
-            <button class="outlinenone" id="btn-add" >Registrar</button>
-          </div>
-          <label  id="registerMessageError"></label>
-          <a class="ingresar" href="#/"><span id="register" class="bold">Iniciar Sesión</span></a>
+  <div class="banner bnsu-image two-col center-items">
+    <img  class="hide" src="img/pantalla3.png" alt="imagen">
+  </div>
+    <div class="center-items two-col  flex-c" id="registrar">
+    <div class="register-login column">
+    <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
+      
+        <h2 >Crear Cuenta!</h2>
+        <form class="flex-c center-items" action="">
+
+          <input class="input-form" id="txt-name-regist-add" type="email" placeholder="Usuario" required>
+          <input class="input-form" id="txt-email-add" type="text" placeholder="Email">
+          <input class="input-form" id="txt-password-add" type="password" placeholder="Password">
+          <button class="btn-login" id="btn-add" >Registrar</button>
+          <label class="error-registra" id="registerMessageError"></label>
+          <a class="" href="#/"><span id="register" class="bold">Iniciar Sesión</span></a>
         </form>
       </article> 
     </div>`;

@@ -1,5 +1,7 @@
 import { components } from '../views/components.js';
+import { getPost } from '../firebase/controllerdata.js';
 
+// rutas
 export const changeView = (routers) => {
   const container = document.getElementById('container');
   container.innerHTML = '';
@@ -8,7 +10,12 @@ export const changeView = (routers) => {
       break;
     case '#/register': container.appendChild(components.register());
       break;
-    case '#/home': container.appendChild(components.home());
+    case '#/home':
+      const callback = (objData) => {
+      container.innerHTML='';
+      container.appendChild(components.home(objData));
+      };
+      getPost(callback);
       break;
     case '#/profile': container.appendChild(components.profile());
       break;
