@@ -13,7 +13,7 @@ export const functionRegisterClick = (event) => {
       const user = firebase.auth().currentUser;
       console.log(user);
       window.location.hash = '#/';
-      firebase.firestore().collection('users').add({
+      firebase.firestore().collection('users').doc(user.uid).set({
         Usuario: name,
         Correo: email,
       });

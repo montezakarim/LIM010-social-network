@@ -10,18 +10,19 @@ export default (array1) => {
     <div class="wrap home">
       <header class="" >
           <nav class="wrap">
-          <a href="#/home"><img src="img/easyStart.png" alt="Easy Start" class="icon-header"></a>
+          <p> Easy Start </p>
           <button id="logout"><img src="img/logout2.png" class ="icon-header" alt=""></button>
         </nav>
       </header>   
     </div>
-    <div id="datos-user">
-      <img class="foto-user" id="foto" src="img/logo-user.png" />
-      <div class="datos">
-        <label  id="name" for="name"></label>
-        <label id="correo" for="name"></label>
+    <div>
+      <div id="datos-user">
+        <img class="foto-user" id="foto" src="img/logo-user.png" />
+        <div class="datos">
+          <label  id="name" for="name"></label>
+          <label id="correo" for="name"></label>
+        </div>
       </div>
-    </div>
       <div class="wall-feed margin-left" >
         <div class="form-post">
           <form id ="form-input">
@@ -41,24 +42,17 @@ export default (array1) => {
             </form>
           </div>
         </div>
-        <section >
-        
-        </section>
       </div>
       <div class="form-post" id="tabla">
-      </div>
-    </div> `;
+    </div>`;
   home.innerHTML = templateHome;
   const btnLogOut = home.querySelector('#logout');
 
   const totalView = home.querySelector('#tabla');
   // const array=[1,2,3,4];
-  for (let i=0; i<array1.length; i++){
-  totalView.appendChild(listPosts(array1[i]));
+  for (let i = 0; i < array1.length; i++) {
+    totalView.appendChild(listPosts(array1[i]));
   }
-
-  //   data.forEach((elemento) => {
-  // });
 
 
   // Publicar post
@@ -68,12 +62,5 @@ export default (array1) => {
   btnLogOut.addEventListener('click', logOutOnClick);
 
   return home;
-
-
-
-  // // ver toda los post
-  // const btnUp = viewHome.querySelector('#btn-up');
-  // btnUp.addEventListener('click',update);
-  // return viewHome;
 };
 

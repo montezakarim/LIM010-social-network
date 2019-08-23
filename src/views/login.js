@@ -6,32 +6,30 @@ import
 export default () => {
   const loginUser = document.createElement('div');
   const templateLogin = `
-      <div class="banner bnsi-image center-items two-col">
-      </div>  
-      <div class="center-items two-col  flex-c">
-        <div class="register-login column">
-          <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
-          <h2 >Bienvenidx Emprendedor!</h2>
-          <form id="autenticacion" class="flex-c center-items" >
-            
-              <input class="input-form " id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
-              <input class="input-form" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
-              <button class="btn-login " id="btn-login">Iniciar Sesión</button>
-              <label id="loginMessageError"></label>
-          
-          </form>
+    <div class="cover-page-imagen center-items two-column">
+    </div>  
+    <div class="two-column center-items  flex-c">
+      <div class="title-form column">
+        <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
+        <h2>Bienvenid@ Emprendedor!</h2>
+        <form id="autenticacion" class="flex-c center-items" >
+          <input class="input-login " id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
+          <input class="input-login" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
+          <button class="btn-login " id="btn-login">Iniciar Sesión</button>
+          <label id="loginMessageError"></label>
+        </form>
+      </div>
+      <div class="column">
+        <p class="text-login">O ingresa con: </p>
+        <div class="wrap">
+          <button id= "btn-facebook" class="facebook fg"></button>
+          <button id="btn-google" class="google fg"></button>
         </div>
-        <div class="column">
-          <p class="ingresar">O ingresa con: </p>
-          <div class="wrap">
-            <button id= "btn-facebook" class="facebook fg"></button>
-            <button id="btn-google" class="google fg"></button>
-          </div>
-          <label class="ingresar">¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
-          </div>
-      </div>`;
+          <label class="text-login">¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
+      </div>
+    </div>`;
   loginUser.innerHTML = templateLogin;
-  loginUser.setAttribute('class', ' two-col flex-r');
+  loginUser.setAttribute('class', 'two-column flex-r');
   const formAutenticacion = loginUser.querySelector('#autenticacion');
   const loginFacebook = loginUser.querySelector('#btn-facebook');
   const loginGoogle = loginUser.querySelector('#btn-google');

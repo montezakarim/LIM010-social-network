@@ -39,6 +39,12 @@ export const signInFacebookClick = (event) => {
   event.preventDefault();
   signInFacebook()
     .then(() => {
+      const user = firebase.auth().currentUser;
+      console.log(user);
+      firebase.firestore().collection('users').doc(user.uid).set({
+        Usuario: user.displayName,
+        Correo: user.email,
+      });
       window.location.hash = '#/home';
     }).catch((error) => {
       // Manejar errores aquí.
@@ -53,6 +59,12 @@ export const signInGoogleClick = (event) => {
   event.preventDefault();
   return signInGoogle()
     .then(() => {
+      const user = firebase.auth().currentUser;
+      console.log(user);
+      firebase.firestore().collection('users').doc(user.uid).set({
+        Usuario: user.displayName,
+        Correo: user.email,
+      });
       window.location.hash = '#/home';
     }).catch((error) => {
       const errorCode = error.code;

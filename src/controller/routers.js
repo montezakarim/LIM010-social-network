@@ -3,23 +3,24 @@ import { getPost } from '../firebase/controllerdata.js';
 
 // rutas
 export const changeView = (routers) => {
-  const container = document.getElementById('container');
-  container.innerHTML = '';
+  const containerGlobal = document.getElementById('container-global');
+  containerGlobal.innerHTML = '';
   switch (routers) {
-    case '#/': container.appendChild(components.login());
+    case '#/': containerGlobal.appendChild(components.login());
       break;
-    case '#/register': container.appendChild(components.register());
+    case '#/register': containerGlobal.appendChild(components.register());
       break;
     case '#/home':
+      // eslint-disable-next-line no-case-declarations
       const callback = (objData) => {
-      container.innerHTML='';
-      container.appendChild(components.home(objData));
+        containerGlobal.innerHTML = '';
+        containerGlobal.appendChild(components.home(objData));
       };
       getPost(callback);
       break;
-    case '#/profile': container.appendChild(components.profile());
+    case '#/profile': containerGlobal.appendChild(components.profile());
       break;
-    default: container.appendChild(components.login());
+    default: containerGlobal.appendChild(components.login());
       break;
   }
 };
