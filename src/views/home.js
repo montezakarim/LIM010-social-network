@@ -68,5 +68,12 @@ export default (array1) => {
   btnLogOut.addEventListener('click', logOutOnClick);
 
   return home;
+
+
+
+  // // ver toda los post
+  // const btnUp = viewHome.querySelector('#btn-up');
+  // btnUp.addEventListener('click',update);
+  // return viewHome;
 };
 
