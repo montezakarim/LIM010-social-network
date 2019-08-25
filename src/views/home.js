@@ -1,8 +1,6 @@
 import { logOutOnClick } from '../controller/login-controller.js';
 import { functionSharePost } from '../controller/post-controller.js';
 import { listPosts } from './post.js';
-// import { update } from '../controller/post-controller.js';
-// const array = ['hola1','hola2', 'hola3'];
 
 export default (allPost) => {
   const containerHome = document.createElement('div');
@@ -55,7 +53,6 @@ export default (allPost) => {
   // Publicar post
   const btnSharePost = containerHome.querySelector('#btn-share-post');
   btnSharePost.addEventListener('click', functionSharePost);
-
   btnLogOut.addEventListener('click', logOutOnClick);
 
   return containerHome;
