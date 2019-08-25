@@ -19,20 +19,24 @@ export const logOut = () => firebase.auth().signOut();
 
 export const userCurrent = () => firebase.auth().currentUser;
 
-// Post
-// export const addPost = (newPost, user, privacyUser) => firebase.firestore().collection('posts').add({
-//   notes: newPost,
-//   user: user.uid,
-//   userName: user.displayName,
-//   privacity: privacyUser,
-//   timePost: (new Date()).toLocaleDateString(),
-// });
 
+export const addPost = (newPost, id, userNombre, postState) => {
+  return firebase.firestore().collection('posts').add({
+    notes: newPost,
+    user: id,
+    userName: userNombre,
+    privacity: postState,
+   // timePost: (new Date()).toLocaleDateString(),
+  });
+};
 
-// meliza
-
-
-
-export const deletePostFirebase = (id) => {
-  return firebase.firestore().collection('post').doc(id).delete();
+export const getPost = (callback) => {
+  firebase.firestore().collection('posts')
+    .onSnapshot((querySnapshot) => {
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      callback(data);
+    });
 };

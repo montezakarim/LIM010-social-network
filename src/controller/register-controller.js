@@ -2,38 +2,38 @@ import { functionRegister } from '../firebase/controllerdata.js';
 
 export const functionRegisterClick = (event) => {
   event.preventDefault();
-  const email = document.getElementById('txt-email-add').value;
-  const password = document.getElementById('txt-password-add').value;
-  const regMessageErrorLabel = document.getElementById('registerMessageError');
-  const name = document.getElementById('txt-name-regist-add').value;
-  functionRegister(email, password)
+  const txtEmailRegister = document.getElementById('txt-email-register').value;
+  const txtPasswordRegister = document.getElementById('txt-password-register').value;
+  const messageErrorRegister = document.getElementById('txt-message-error-register');
+  const name = document.getElementById('txt-name-register').value;
+  functionRegister(txtEmailRegister, txtPasswordRegister)
     .then(() => {
-      regMessageErrorLabel.classList.remove('show-message-error');
-      regMessageErrorLabel.innerHTML = '';
+      messageErrorRegister.classList.remove('show-message-error');
+      messageErrorRegister.innerHTML = '';
       const user = firebase.auth().currentUser;
       console.log(user);
       window.location.hash = '#/';
-      firebase.firestore().collection('users').add({
+      firebase.firestore().collection('users').doc(user.uid).set({
         Usuario: name,
-        Correo: email,
+        Correo: txtEmailRegister,
       });
       console.log(name);
-      console.log(email);
+      console.log(txtEmailRegister);
     })
     .catch((error) => {
-      regMessageErrorLabel.classList.add('show-message-error');
+      messageErrorRegister.classList.add('show-message-error');
       switch (error.code) {
         case 'auth/email-already-in-use':
-          regMessageErrorLabel.innerHTML = '¡La dirección de correo electrónico ya existe!';
+          messageErrorRegister.innerHTML = '¡La dirección de correo electrónico ya existe!';
           break;
         case 'auth/weak-password':
-          regMessageErrorLabel.innerHTML = 'La contraseña debe tener 6 ó más caracteres';
+          messageErrorRegister.innerHTML = 'La contraseña debe tener 6 ó más caracteres';
           break;
         case 'auth/invalid-email':
-          regMessageErrorLabel.innerHTML = 'No se escribió correo electrónico válido, example@example.com';
+          messageErrorRegister.innerHTML = 'No se escribió correo electrónico válido, example@example.com';
           break;
         default:
-          regMessageErrorLabel.innerHTML = 'Se ha producido un error';
+          messageErrorRegister.innerHTML = 'Se ha producido un error';
       }
     });
 };
