@@ -1,6 +1,6 @@
 import
 {
-  singInLogin, signInFacebook, signInGoogle, logOut,
+  singInLogin, signInFacebook, signInGoogle, logOut,  userCurrent,
 }
   from '../module/controllerdata.js';
 
@@ -9,28 +9,28 @@ export const singInLoginClick = (event) => {
   event.preventDefault();
   const email = event.target.email.value;
   const password = event.target.password.value;
-  const messageErrorLabel = document.getElementById('loginMessageError');
+  const menssageErrorLogin = document.getElementById('txt-message-error-login');
   return singInLogin(email, password)
     .then(() => {
-      messageErrorLabel.classList.remove('show-message-error');
-      messageErrorLabel.innerHTML = '';
+      menssageErrorLogin.classList.remove('show-message-error');
+      menssageErrorLogin.innerHTML = '';
       window.location.hash = '#/home';
 
     })
     .catch((error) => {
-      messageErrorLabel.classList.add('show-message-error');
+      menssageErrorLogin.classList.add('show-message-error');
       switch (error.code) {
         case 'auth/user-not-found':
-          messageErrorLabel.innerHTML = 'Usuario no registrado';
+          menssageErrorLogin.innerHTML = 'Usuario no registrado';
           break;
         case 'auth/wrong-password':
-          messageErrorLabel.innerHTML = 'Contraseña incorrecta';
+          menssageErrorLogin.innerHTML = 'Contraseña incorrecta';
           break;
         case 'auth/invalid-email':
-          messageErrorLabel.innerHTML = 'No se ingresó ningún correo electrónico';
+          menssageErrorLogin.innerHTML = 'No se ingresó ningún correo electrónico';
           break;
         default:
-          messageErrorLabel.innerHTML = 'Se ha producido un error';
+          menssageErrorLogin.innerHTML = 'Se ha producido un error';
       }
     });
 };
@@ -39,6 +39,12 @@ export const signInFacebookClick = (event) => {
   event.preventDefault();
   signInFacebook()
     .then(() => {
+      const user = userCurrent();
+      console.log(user);
+      firebase.firestore().collection('users').doc(user.uid).set({
+        Usuario: user.displayName,
+        Correo: user.email,
+      });
       window.location.hash = '#/home';
     }).catch((error) => {
       // Manejar errores aquí.
@@ -53,6 +59,12 @@ export const signInGoogleClick = (event) => {
   event.preventDefault();
   return signInGoogle()
     .then(() => {
+      const user = userCurrent();
+      console.log(user);
+      firebase.firestore().collection('users').doc(user.uid).set({
+        Usuario: user.displayName,
+        Correo: user.email,
+      });
       window.location.hash = '#/home';
     }).catch((error) => {
       const errorCode = error.code;
@@ -62,7 +74,7 @@ export const signInGoogleClick = (event) => {
     });
 };
 
-export const userCurrent = () => firebase.auth().currentUser;
+
 
 export const logOutOnClick = (event) => {
   event.preventDefault();

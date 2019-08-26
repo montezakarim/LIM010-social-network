@@ -1,56 +1,39 @@
 import { functionRegister, userCurrent } from '../module/controllerdata.js';
-//Registramos un nuevo usuario 
-export const obtenerNombreEmail = (email) => {
-  // Obtención de datos de un documento
-  firebase.firestore().collection('users').where("Email", "==", email).get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => { // forEach -> se repite por cada documento que este en users
-            // console.log(doc.id, " => ", doc.data());
-            console.log(doc.data().Nombre);// consoleamos el nombre que hay en el documento
-            console.log(doc.data().Email);// consoleamos el nombre que hay en el documento
-        });
-    })
-    .catch((error) => {
-        console.log("Error al obtener documentos: ", error);
-    });
-  };
-const crearUsuario = (id, name, email, foto) => {
-  firebase.firestore().collection('users').doc(id).set({ // agrega datos en la colección
-    ID: id,
-    Nombre: name,
-    Email: email,
-    Foto: foto
-  });
-};
-export const functionRegisterClick= (email, password, name, foto) => {
+
+export const functionRegisterClick = (event) => {
   event.preventDefault();
-  const regMessageErrorLabel = document.getElementById('registerMessageError');
-  functionRegister(email, password)
+  const txtEmailRegister = document.getElementById('txt-email-register').value;
+  const txtPasswordRegister = document.getElementById('txt-password-register').value;
+  const messageErrorRegister = document.getElementById('txt-message-error-register');
+  const name = document.getElementById('txt-name-register').value;
+  functionRegister(txtEmailRegister, txtPasswordRegister)
     .then(() => {
-      regMessageErrorLabel.classList.remove('show-message-error');
-      regMessageErrorLabel.innerHTML = '';
+      messageErrorRegister.classList.remove('show-message-error');
+      messageErrorRegister.innerHTML = '';
       const user = userCurrent();
       console.log(user);
-      obtenerNombreEmail(email); // obtenemos nombre y email del usuario creado
-      crearUsuario(user.uid, name, email, foto);// creamos el usuario en firebase
       window.location.hash = '#/';
+      firebase.firestore().collection('users').doc(user.uid).set({
+        Usuario: name,
+        Correo: txtEmailRegister,
+      });
       console.log(name);
-      console.log(email);
+      console.log(txtEmailRegister);
     })
     .catch((error) => {
-      regMessageErrorLabel.classList.add('show-message-error');
+      messageErrorRegister.classList.add('show-message-error');
       switch (error.code) {
         case 'auth/email-already-in-use':
-          regMessageErrorLabel.innerHTML = '¡La dirección de correo electrónico ya existe!';
+          messageErrorRegister.innerHTML = '¡La dirección de correo electrónico ya existe!';
           break;
         case 'auth/weak-password':
-          regMessageErrorLabel.innerHTML = 'La contraseña debe tener 6 ó más caracteres';
+          messageErrorRegister.innerHTML = 'La contraseña debe tener 6 ó más caracteres';
           break;
         case 'auth/invalid-email':
-          regMessageErrorLabel.innerHTML = 'No se escribió correo electrónico válido, example@example.com';
+          messageErrorRegister.innerHTML = 'No se escribió correo electrónico válido, example@example.com';
           break;
         default:
-          regMessageErrorLabel.innerHTML = 'Se ha producido un error';
+          messageErrorRegister.innerHTML = 'Se ha producido un error';
       }
     });
 };
