@@ -1,4 +1,23 @@
-# Creando una Red Social
+# Social Network **Easy Start** Tu taento no tiene límites
+
+## Índice
+
+* [Preámbulo](#preámbulo)
+* [Definición del producto](#definición-del-producto)
+
+
+
+***
+
+## Preámbulo
+
+Actualmente existen varias redes sociales y también aquellas que están destinadas a una comunidad específica. Por esta razón presentamo una Red Social para emprendedores Easy Start.
+![Logo](../img/easyStart.png)
+
+Easy Start nace con la idea de lograr que nuestros emprendedores peruanos tengan una red donde puedan no solo saber u orientarse de que pasos a seguir  para constituir una empresa si no también  compartir ideas o proyectos de negocio,  Easy Start a través de su plataforma busca que nuestros emprendedores también puedan contactar con proveedores y clientes, aumentar el crecimiento empresarial  y negocios, alianzas estrategicas, inversionistas,aprender nuevas habilidades y convertir sus sueños en realidad Tu talento no tiene límites, hazlo llegar a todo el mundo.
+
+
+#Creando una Red Social
 
 Bienvenida a tu primer proyecto del track de Frontend en Laboratoria.
 

@@ -1,4 +1,4 @@
-import { functionRegister } from '../firebase/controllerdata.js';
+import { functionRegister, userCurrent } from '../module/controllerdata.js';
 
 export const functionRegisterClick = (event) => {
   event.preventDefault();
@@ -10,7 +10,7 @@ export const functionRegisterClick = (event) => {
     .then(() => {
       messageErrorRegister.classList.remove('show-message-error');
       messageErrorRegister.innerHTML = '';
-      const user = firebase.auth().currentUser;
+      const user = userCurrent();
       console.log(user);
       window.location.hash = '#/';
       firebase.firestore().collection('users').doc(user.uid).set({

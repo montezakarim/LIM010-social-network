@@ -1,24 +1,27 @@
 import { logOutOnClick } from '../controller/login-controller.js';
 import { functionSharePost } from '../controller/post-controller.js';
 import { listPosts } from './post.js';
+import { userCurrent } from '../module/controllerdata.js';
 
 export default (allPost) => {
   const containerHome = document.createElement('div');
   const templateHome = `
-    <div class="wrap home">
+    <div class="wrap">
       <header class="" >
-          <nav class="wrap">
-          <p> Easy Start </p>
-          <button id="logout"><img src="img/logout2.png" class ="icon-header" alt=""></button>
-        </nav>
+        <select>
+          <option value=0>${userCurrent().displayName}</option>
+        </select>
+        <p class="title-header"> Easy Start </p>
+        <button id="logout" class="logout"><img src="img/logout2.png" class ="icon-header" alt=""></button>
+        
       </header>   
     </div>
     <div>
-      <div>
-        <img class="foto-user" id="foto" src="img/logo-user.png" />
+      <div class="flex-c" >
+        <img class="foto-user" id="foto" src="${userCurrent().photoURL}" />
         <div class="datos">
-          <label  id="name" for="name"></label>
-          <label id="correo" for="name"></label>
+          <label  id="name" for="name">${userCurrent().displayName}</label>
+          <label id="correo" for="name">${userCurrent().email}</label>
         </div>
       </div>
       <div class="wall-feed margin-left" >
@@ -34,7 +37,6 @@ export default (allPost) => {
                 <option value="Público" class="font-weight-privacy">Público</option>
               </select>
               <button id="btn-share-post" class="btn-post btn-compartir">Compartir</button>
-              <button id="btn-edit-post" class="btn-post btn-compartir hide">Editar</button>
             </form>
           </div>
         </div>
@@ -57,4 +59,3 @@ export default (allPost) => {
 
   return containerHome;
 };
-
