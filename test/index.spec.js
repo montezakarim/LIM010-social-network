@@ -1,60 +1,58 @@
-// // importamos la funcion que vamos a testear
-// import { myFunction } from '../src/lib/index';
-
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
-// configurando firebase mock
+// configuracion de mock de firebase
+// iniciando tests
+import {
+  singInLogin, signInFacebook, signInGoogle, logOut, functionRegister,
+} from '../src/firebase/controllerdata.js';
 
 const firebasemock = require('firebase-mock');
+
 const mockauth = new firebasemock.MockFirebase();
-const mockfirestore = new firebasemock.MockFirestore();
-mockfirestore.autoFlush();
+const mockdatabase = new firebasemock.MockFirebase();
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
   // use null if your code does not use RTDB
   path => (path ? mockdatabase.child(path) : null),
   () => mockauth,
-  () => mockfirestore
 );
 
-// iniciando tests
-import  { singInLogin, signInFacebook, signInGoogle, logOut } from '../src/firebase/controllerdata.js';
-
-describe('Iniciar Sesión', () => {
-  it('Debería iniciar sesion', () => {
-    return singInLogin('kmontezam@gmail.com', '123456')
-      .then((result) => {
-        expect(user.email).toBe('kmontezam@gmail.com');
-      });
-  });
+// Registro
+describe('registro', () => {
+  it('Deberia poder registrarse', () => functionRegister('laboratoria@lab.com', '123456789')
+    .then((user) => {
+      expect(user.email).toBe('laboratoria@lab.com');
+    }));
 });
+
+// Iniciar sesión
+describe('inicio de sesion', () => {
+  it('Debería poder iniciar sesion', () => singInLogin('laboratoria@hotmail.la', '123456')
+    .then((user) => {
+      expect(user.email).toBe('laboratoria@hotmail.la');
+    }));
+});
+
+// Iniciar sesión con facebook
 describe('sesion iniciada', () => {
-  it('Deberia poder iniciar sesion con Facebook', () => {
-    return signInFacebook()
-      .then(() => {
-        expect('').toBe('');
-      });
-  });
+  it('Deberia poder iniciar sesion con Facebook', () => signInFacebook()
+    .then(() => {
+      expect('').toBe('');
+    }));
 });
 
+// Iniicar sesión con google
+// eslint-disable-next-line jest/no-identical-title
 describe('sesion iniciada', () => {
-  it('Deberia poder iniciar sesion con google', () => {
-    return signInGoogle()
-      .then(() => {
-        expect('').toBe('');
-      });
-  });
+  it('Deberia poder iniciar sesion con Google', () => signInGoogle()
+    .then(() => {
+      expect('').toBe('');
+    }));
 });
 
+// Cesar sesión
 describe('sesion cerrada', () => {
-  it('deberia poder cerrar sesion', () => {
-    return logOut()
-      .then(() => {
-        expect(firebase.auth().currentUser).toBe(null);
-      });
-  });
-}); 
+  it('deberia poder cerrar sesion', () => logOut()
+    .then(() => {
+      expect(firebase.auth().currentUser).toBe(null);
+    }));
+});
