@@ -74,8 +74,6 @@ export const signInGoogleClick = (event) => {
     });
 };
 
-
-
 export const logOutOnClick = (event) => {
   event.preventDefault();
   logOut()
