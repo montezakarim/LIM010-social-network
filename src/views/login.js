@@ -4,7 +4,7 @@ import
 } from '../controller/login-controller.js';
 
 export default () => {
-  const loginUser = document.createElement('div');
+  const containerLogin = document.createElement('div');
   const templateLogin = `
     <div class="cover-page-imagen center-items two-column">
     </div>  
@@ -12,11 +12,11 @@ export default () => {
       <div class="title-form column">
         <img  class="logo" src="img/easyStart.png" alt="logo easy start"><a href="#"></a>
         <h2>Bienvenid@ Emprendedor!</h2>
-        <form id="autenticacion" class="flex-c center-items" >
+        <form id="form-authentication" class="flex-c center-items" >
           <input class="input-login " id="email" type="email" placeholder="Usuario" required><i class="fas fa-envelope"></i>
           <input class="input-login" id="password" type="password" placeholder="Contraseña" required><i id="show-eye" class="far fa-eye"></i>
           <button class="btn-login " id="btn-login">Iniciar Sesión</button>
-          <label id="loginMessageError"></label>
+          <label id="txt-message-error-login"></label>
         </form>
       </div>
       <div class="column">
@@ -28,16 +28,16 @@ export default () => {
           <label class="text-login">¿No tienes una cuenta?&nbsp;<a href="#/register"><span id="register" class="bold">Regístrate</span></a></label>
       </div>
     </div>`;
-  loginUser.innerHTML = templateLogin;
-  loginUser.setAttribute('class', 'two-column flex-r');
-  const formAutenticacion = loginUser.querySelector('#autenticacion');
-  const loginFacebook = loginUser.querySelector('#btn-facebook');
-  const loginGoogle = loginUser.querySelector('#btn-google');
-  const showEye = loginUser.querySelector('#show-eye');
+  containerLogin.innerHTML = templateLogin;
+  containerLogin.setAttribute('class', 'two-column flex-r');
+  const authenticationEmailClick = containerLogin.querySelector('#form-authentication');
+  const authenticationFacebook = containerLogin.querySelector('#btn-facebook');
+  const authenticationGoogle = containerLogin.querySelector('#btn-google');
+  const showEye = containerLogin.querySelector('#show-eye');
 
-  formAutenticacion.addEventListener('submit', singInLoginClick);
-  loginFacebook.addEventListener('click', signInFacebookClick);
-  loginGoogle.addEventListener('click', signInGoogleClick);
+  authenticationEmailClick.addEventListener('submit', singInLoginClick);
+  authenticationFacebook.addEventListener('click', signInFacebookClick);
+  authenticationGoogle.addEventListener('click', signInGoogleClick);
   showEye.addEventListener('click', showPassword);
-  return loginUser;
+  return containerLogin;
 };

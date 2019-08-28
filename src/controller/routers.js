@@ -1,5 +1,5 @@
 import { components } from '../views/components.js';
-import { getPost } from '../firebase/controllerdata.js';
+import { getPost } from '../module/controllerdata.js';
 
 // rutas
 export const changeView = (routers) => {
