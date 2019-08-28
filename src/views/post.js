@@ -21,7 +21,6 @@ export const listPosts = (data) => {
           <button id="like-post"><i class="fab fa-gratipay"></i></button>
           <span id="like-count">${data.like}</span>
         </div>
-
         <div id="confirm-delete-view" class="modal">
           <div class="modal-content">
             <p>¿Deseas eliminar la publicación?</p>
@@ -102,19 +101,18 @@ export const listPosts = (data) => {
 
 
 // Agregar comentario en la sub coleccion
-  const btnComment = containerOnePost.querySelector('#btn-comment')
-  btnComment.addEventListener('click', ()=>{
-    const txtComment = document.getElementById('txt-comment').value;
-    console.log(txtComment);
-    addCommentPost(data.id,data.userName,txtComment)
-  .then((response) => {
-    containerOnePost.querySelector('#txt-comment').value = '';
-    console.log('se agrego a tu colleccion', response.id);
-  }).catch((error) => {
-    console.log('no se agrego', error);
-  });
-  }) ;
-
+const btnComment = containerOnePost.querySelector('#btn-comment')
+btnComment.addEventListener('click', ()=>{
+  const txtComment = document.getElementById('txt-comment').value;
+  console.log(txtComment);
+  addCommentPost(data.id,data.userName,txtComment)
+.then((response) => {
+  containerOnePost.querySelector('#txt-comment').value = '';
+  console.log('se agrego a tu colleccion', response.id);
+}).catch((error) => {
+  console.log('no se agrego', error);
+});
+}) ;
 
 
   return containerOnePost;
