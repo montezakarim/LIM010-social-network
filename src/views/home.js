@@ -2,7 +2,7 @@ import { logOutOnClick } from '../controller/login-controller.js';
 import { functionSharePost } from '../controller/post-controller.js';
 import { listPosts } from './post.js';
 import { userCurrent } from '../module/controllerdata.js';
-import { listCommentPost } from './post-comment.js';
+//import { listCommentPost } from './post-comment.js';
 
 export default (allPost) => {
   const containerHome = document.createElement('div');
@@ -55,12 +55,8 @@ export default (allPost) => {
   // menu movil
   
   if (userCurrent().displayName) {
-    // const buttonLogOut = containerHome.querySelector("#logout");
-    // buttonLogOut.addEventListener("click", logOutOnClick);
-    //const buttonUpdatePorfile=header.querySelector('#update-profile');
-    //buttonUpdatePorfile.addEventListener('click',updateOnclickProfile);
     const btnNav = containerHome.querySelector('#btn-menu');
-  btnNav.addEventListener('click', ()=> {
+    btnNav.addEventListener('click', ()=> {
     const nav2 =containerHome.querySelector('#nav2');
     nav2.appendChild(nav())
   })

@@ -37,7 +37,6 @@ export const getPost = (callback) => {
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         data.push({ id: doc.id, ...doc.data() });
       });
       callback(data);
@@ -61,29 +60,20 @@ export const likesPostCount = (id, likes) => {
   });
 };
 
-
-// Guardar comentario
-export const addCommentPost = (idPost,idUser,textComment)=>{
-  return firebase.firestore().collection('posts').doc(idPost).collection('comments').add({
-    idPost : idPost,
-    idUser : idUser,
-    textComment: textComment
-  })
-}
-
-// leer comentario
-export const getCommentPost = (id, callback) => {
-  firebase.firestore().collection('posts').doc(id).collection('comment')
-    .onSnapshot((querySnapshot) => {
-      const data1 = [];
-     
-      querySnapshot.forEach((doc) => {
-        console.log(doc.addCommentPost());
-        data1.push({ id: doc.id, ...doc.add() });
-        
-      });
-      callback(data1);
-      
-    });
+// agregar comentario
+export const addCommentPost = (idPost, id,text) => {
+  firebase.firestore().collection('Posts').doc(idPost).collection('comment') .add({
+  idPost: idPost,
+  idUsuario: id,
+  comment: text
+});
 };
 
+// const addComment = (text, email, postId, id, date) => firebase.firestore().collection('Posts').doc(postId).collection('comment')
+//   .add({
+//     comentario: text,
+//     correo: email,
+//     idPost: postId,
+//     idUsuario: id,
+//     time: date,
+//   });

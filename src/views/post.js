@@ -1,5 +1,5 @@
 import { deletePostClick, editPostClick, likePostClick } from "../controller/post-controller.js";
-import { addCommentPost, getCommentPost, userCurrent } from '../module/controllerdata.js';
+import { addCommentPost } from '../module/controllerdata.js';
 //import { listCommentPost } from '../views/post-comment.js';
 export const listPosts = (data) => {
   const containerOnePost = document.createElement('div');
@@ -80,15 +80,15 @@ export const listPosts = (data) => {
   });
 
 
-  console.log(data);
-  const containerComentario = containerOnePost.querySelector('#comment-post');
-  const callComments = (data) => {
-  for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
-    containerComentario.appendChild(listCommentPost(data[i]));
-  }
-  };
-  getCommentPost(data.id, callComments);
+  // console.log(data);
+  // const containerComentario = containerOnePost.querySelector('#comment-post');
+  // const callComments = (data) => {
+  // for (let i = 0; i < data.length; i++) {
+  //   console.log(data[i]);
+  //   containerComentario.appendChild(listCommentPost(data[i]));
+  // }
+  // };
+  // getCommentPost(data.id, callComments);
   
   
   // //pintar comentario
