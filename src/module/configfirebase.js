@@ -10,5 +10,4 @@ export const configFirebase = () => {
   };
   // Initialize Firebase
   firebase.initializeApp(config);
-};
-
+}

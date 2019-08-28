@@ -1,8 +1,8 @@
 import
 {
-  singInLogin, signInFacebook, signInGoogle, logOut,
+  singInLogin, signInFacebook, signInGoogle, logOut,  userCurrent,
 }
-  from '../firebase/controllerdata.js';
+  from '../module/controllerdata.js';
 
 
 export const singInLoginClick = (event) => {
@@ -39,7 +39,7 @@ export const signInFacebookClick = (event) => {
   event.preventDefault();
   signInFacebook()
     .then(() => {
-      const user = firebase.auth().currentUser;
+      const user = userCurrent();
       console.log(user);
       firebase.firestore().collection('users').doc(user.uid).set({
         Usuario: user.displayName,
@@ -59,7 +59,7 @@ export const signInGoogleClick = (event) => {
   event.preventDefault();
   return signInGoogle()
     .then(() => {
-      const user = firebase.auth().currentUser;
+      const user = userCurrent();
       console.log(user);
       firebase.firestore().collection('users').doc(user.uid).set({
         Usuario: user.displayName,
@@ -74,7 +74,7 @@ export const signInGoogleClick = (event) => {
     });
 };
 
-export const userCurrent = () => firebase.auth().currentUser;
+
 
 export const logOutOnClick = (event) => {
   event.preventDefault();
