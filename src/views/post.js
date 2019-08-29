@@ -1,6 +1,5 @@
 import { deletePostClick, editPostClick, likePostClick } from "../controller/post-controller.js";
 import { addCommentPost } from '../module/controllerdata.js';
-//import { listCommentPost } from '../views/post-comment.js';
 export const listPosts = (data) => {
   const containerOnePost = document.createElement('div');
  
