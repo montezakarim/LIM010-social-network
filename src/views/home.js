@@ -53,7 +53,6 @@ export default (allPost) => {
   containerHome.innerHTML = templateHome;
   const btnLogOut = containerHome.querySelector('#logout');
   // menu movil
-  
   if (userCurrent().displayName) {
     const btnNav = containerHome.querySelector('#btn-menu');
     btnNav.addEventListener('click', ()=> {
