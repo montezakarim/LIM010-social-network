@@ -1,4 +1,4 @@
-import { functionRegister, userCurrent } from '../module/controllerdata.js';
+import { functionRegister, userCurrent, createUser } from '../module/controllerdata.js';
 
 export const functionRegisterClick = (event) => {
   event.preventDefault();
@@ -6,17 +6,13 @@ export const functionRegisterClick = (event) => {
   const txtPasswordRegister = document.getElementById('txt-password-register').value;
   const messageErrorRegister = document.getElementById('txt-message-error-register');
   const name = document.getElementById('txt-name-register').value;
+  
   functionRegister(txtEmailRegister, txtPasswordRegister)
     .then(() => {
       messageErrorRegister.classList.remove('show-message-error');
-      messageErrorRegister.innerHTML = '';
+      messageErrorRegister.innerHTML = 'Usuario Registrado';
       const user = userCurrent();
-      console.log(user);
-      window.location.hash = '#/';
-      firebase.firestore().collection('users').doc(user.uid).set({
-        Usuario: name,
-        Correo: txtEmailRegister,
-      });
+      createUser(user.uid, name, txtEmailRegister);// creamos el usuario en firebase
       console.log(name);
       console.log(txtEmailRegister);
     })

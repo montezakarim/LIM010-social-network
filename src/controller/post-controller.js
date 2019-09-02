@@ -6,6 +6,7 @@ export const functionSharePost = (event) => {
   const txtPost = document.getElementById('txt-new-post').value;
   const postState = document.getElementById('post-state').value;
   const user = userCurrent();
+  console.log(user);
   let countLike = 0;
   addPost(txtPost, user.uid, user.displayName, postState,countLike)
     .then(() => {
@@ -15,6 +16,7 @@ export const functionSharePost = (event) => {
       console.log('error de adding documt', error);
     });
 };
+
 
 // guardar en un array la data para agregar la propiedad id en el objeto--para llamar en la ruta
 export const getPosts = (dataPost) => {
@@ -26,6 +28,20 @@ export const getPosts = (dataPost) => {
       });
     }); 
 };
+
+// editar
+export const editPost1 = (id, newtextPost) => firebase.firestore().collection('posts')
+  .doc(id)
+  .update({
+    notes: newtextPost,
+  })
+  .then(() => {
+    console.log('Document successfully updated!');
+  })
+  .catch((error) => {
+    console.error('Error updating document: ', error);
+  });
+
 //Eliminar Post
 export const deletePostClick = (id) => {
   deletePost(id.id)

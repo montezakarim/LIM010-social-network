@@ -19,18 +19,24 @@ export const logOut = () => firebase.auth().signOut();
 
 export const userCurrent = () => firebase.auth().currentUser;
 
-
-//Post
-export const addPost = (newPost, id, userNombre, postState) => {
-  return firebase.firestore().collection('posts').add({
-    notes: newPost,
-    user: id,
-    userName: userNombre,
-    privacity: postState,
-    like: 0,
-    timePost: firebase.firestore.FieldValue.serverTimestamp(),//Devuelve un centinela para usar con set()o update()para incluir una marca de tiempo generada por el servidor en los datos escritos
+// guardamos los datos del usuario en la bd
+export const createUser = (id, name, email) => {
+  firebase.firestore().collection('users').doc(id).set({
+    idUsuario: id,
+    Nombre: name,
+    Email: email
   });
 };
+
+// Post
+export const addPost = (newPost, id, userNombre, postState) => firebase.firestore().collection('posts').add({
+  notes: newPost,
+  user: id,
+  userName: userNombre,
+  privacity: postState,
+  like: 0,
+  timePost: new Date(),
+});
 
 export const getPost = (callback) => {
   firebase.firestore().collection('posts').orderBy('timePost','desc')
@@ -62,12 +68,23 @@ export const likesPostCount = (id, likes) => {
 
 // agregar comentario
 export const addCommentPost = (idPost, id,text) => {
-  firebase.firestore().collection('Posts').doc(idPost).collection('comment') .add({
+  firebase.firestore().collection('comment').add({
   idPost: idPost,
   idUsuario: id,
   comment: text
 });
 };
+
+// export const addPost = (newPost, id, userNombre, postState) => {
+//   return firebase.firestore().collection('posts').add({
+//     notes: newPost,
+//     user: id,
+//     userName: userNombre,
+//     privacity: postState,
+//     like: 0,
+//     timePost: firebase.firestore.FieldValue.timePost(),//Devuelve un centinela para usar con set()o update()para incluir una marca de tiempo generada por el servidor en los datos escritos
+//   });
+// };
 
 // const addComment = (text, email, postId, id, date) => firebase.firestore().collection('Posts').doc(postId).collection('comment')
 //   .add({
