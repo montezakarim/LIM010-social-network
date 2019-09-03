@@ -5,16 +5,18 @@ export const functionSharePost = (event) => {
   event.preventDefault();
   const txtPost = document.getElementById('txt-new-post').value;
   const postState = document.getElementById('post-state').value;
+
   const user = userCurrent();
-  let countLike = 0;
-  addPost(txtPost, user.uid, user.displayName, postState,countLike)
+  console.log(user);
+  const countLike = 0;
+  addPost(txtPost, user.uid, user.displayName, postState, user.email, countLike)
     .then(() => {
+      console.log(user.email);
       document.getElementById('txt-new-post').value = '';
       // alert('Post agregado');
-    }).catch((error) => {
-      console.log('error de adding documt', error);
     });
 };
+
 
 // guardar en un array la data para agregar la propiedad id en el objeto--para llamar en la ruta
 export const getPosts = (dataPost) => {
@@ -26,20 +28,31 @@ export const getPosts = (dataPost) => {
       });
     }); 
 };
-//Eliminar Post
+
+// editar
+export const editPost1 = (idPost, newtextPost) => { 
+  editPost(idPost, newtextPost)
+    .then(() => {
+    // console.log('Document written with ID: ', docRef.id);
+    }).catch(() => {
+    // console.error('Error adding document: ', error);
+    });
+};
+
+// Eliminar Post
 export const deletePostClick = (id) => {
   deletePost(id.id)
     .then(() => {
       // console.log('Document written with ID: ', docRef.id);
     }).catch((error) => {
-      console.error('Error adding document: ', error);
+      // console.error('Error adding document: ', error);
     });
    
 };
 // Editar Post
 export const editPostClick = (id) => { 
-    let newtextPost= document.querySelector('#text-edit');
-    editPost(id.id, newtextPost.value);
+  let newtextPost= document.querySelector('#text-edit');
+  editPost(id.id, newtextPost.value);
 };
 
 // Likes de Post
@@ -47,7 +60,7 @@ export const likePostClick = (id) => {
   likesPost(id.id)
     .then((result) => {
       const seeCount = result.data().like;
-      console.log(seeCount);
+      // console.log(seeCount);
       return  seeCount;
      
     }).catch(() => {});
