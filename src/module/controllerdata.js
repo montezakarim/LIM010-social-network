@@ -2,6 +2,7 @@
 export const functionRegister = (email, password) => {
   return firebase.auth().createUserWithEmailAndPassword(email, password);
 };
+
 export const singInLogin = (email, password) => {
   return firebase.auth().signInWithEmailAndPassword(email, password);
 };
@@ -20,7 +21,7 @@ export const logOut = () => firebase.auth().signOut();
 export const userCurrent = () => firebase.auth().currentUser;
 
 
-//Post
+// Post
 export const addPost = (newPost, id, userNombre, postState) => {
   return firebase.firestore().collection('posts').add({
     notes: newPost,
@@ -28,12 +29,12 @@ export const addPost = (newPost, id, userNombre, postState) => {
     userName: userNombre,
     privacity: postState,
     like: 0,
-    timePost: firebase.firestore.FieldValue.serverTimestamp(),//Devuelve un centinela para usar con set()o update()para incluir una marca de tiempo generada por el servidor en los datos escritos
+    timePost: new Date(),
   });
 };
 
 export const getPost = (callback) => {
-  firebase.firestore().collection('posts').orderBy('timePost','desc')
+  firebase.firestore().collection('posts').orderBy('timePost', 'desc')
     .onSnapshot((querySnapshot) => {
       const data = [];
       querySnapshot.forEach((doc) => {
@@ -42,7 +43,7 @@ export const getPost = (callback) => {
       callback(data);
     });
 };
-//Eliminar Publicación
+// Eliminar Publicación
 export const deletePost = (id) => {
   return firebase.firestore().collection('posts').doc(id).delete();
 };
@@ -53,7 +54,7 @@ export const editPost = (id, newTextPost) => {
   });
 };
 // Likes y Contador
-export const likesPost = (id) => firebase.firestore().collection('posts').doc(id).get();//get() para recuperar el contenido de un elemento 
+export const likesPost = id => firebase.firestore().collection('posts').doc(id).get(); // get() para recuperar el contenido de un elemento
 export const likesPostCount = (id, likes) => {
   return firebase.firestore().collection('posts').doc(id).update({
     like: likes += 1,
@@ -61,7 +62,7 @@ export const likesPostCount = (id, likes) => {
 };
 
 // agregar comentario
-export const addCommentPost = (idPost, id,text) => {
+export const addCommentPost = (idPost, id, text) => {
   firebase.firestore().collection('Posts').doc(idPost).collection('comment') .add({
   idPost: idPost,
   idUsuario: id,
