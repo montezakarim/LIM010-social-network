@@ -15,7 +15,13 @@
 
 .flex-r {
 
+<<<<<<< HEAD
   flex-direction: row;
+=======
+.center-items {
+  /* align-items: center; */
+  /* justify-content: center; */
+>>>>>>> 17465ce4ea80afc3a8c314b4ccdc4faf7e94ddf1
 }
 
 .size {

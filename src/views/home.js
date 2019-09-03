@@ -3,7 +3,10 @@ import { listPosts } from './post.js';
 import { userCurrent } from '../module/controllerdata.js';
 import { dataUser } from '../controller/register-controller.js';
 
+
 export default (allPost) => {
+
+ 
   const containerHome = document.createElement('div');
   const templateHome = `
       <header>
@@ -67,5 +70,6 @@ export default (allPost) => {
   const btnSharePost = containerHome.querySelector('#btn-share-post');
   btnSharePost.addEventListener('click', functionSharePost);
 
+  
   return containerHome;
 };

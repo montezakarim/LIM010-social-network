@@ -6,7 +6,6 @@ export const functionRegisterClick = (event) => {
   const txtPasswordRegister = document.getElementById('txt-password-register').value;
   const messageErrorRegister = document.getElementById('txt-message-error-register');
   const name = document.getElementById('txt-name-register').value;
-
   functionRegister(txtEmailRegister, txtPasswordRegister)
     .then(() => {
       messageErrorRegister.classList.remove('show-message-error');
