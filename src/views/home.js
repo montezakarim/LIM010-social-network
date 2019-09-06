@@ -1,6 +1,7 @@
 import { functionSharePost } from '../controller/post-controller.js';
 import { listPosts } from './post.js';
 import { dataUser } from '../controller/register-controller.js';
+import { logOutOnClick } from '../controller/login-controller.js';
 
 export default (allPost) => {
   const containerHome = document.createElement('div');
@@ -12,7 +13,7 @@ export default (allPost) => {
           <label for="menu-bar"><i class="fas fa-bars"></i></label>
           <nav class="menu">
             <a href="" id="name-menu"></a>
-            <a href="#/">Cerrar Sesion</a>
+            <a id="logout" href="#/">Cerrar Sesion</a>
           </nav>
         </div>
       </header>   
@@ -52,7 +53,7 @@ export default (allPost) => {
   const userNameMenu = containerHome.querySelector('#name-menu');
   const userCorreo = containerHome.querySelector('#correo');
 
-  // const btnLogOut = containerHome.querySelector('#logout');
+  const btnLogOut = containerHome.querySelector('#logout');
   dataUser(userName, userCorreo, userNameMenu);
 
   // Imprimir todo las publicaciones dinamicamente
@@ -65,6 +66,9 @@ export default (allPost) => {
   // Publicar post
   const btnSharePost = containerHome.querySelector('#btn-share-post');
   btnSharePost.addEventListener('click', functionSharePost);
+
+  // Cerrar Sesión
+  btnLogOut.addEventListener('click', logOutOnClick);
 
   return containerHome;
 };

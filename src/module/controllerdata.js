@@ -13,11 +13,11 @@ export const signInGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
-// export const logOut = () => firebase.auth().signOut();
+export const logOut = () => firebase.auth().signOut();
 
 export const userCurrent = () => firebase.auth().currentUser;
 
-// guardamos los datos del usuario en la bd
+// guardamos los datos del usuario en la bd /falta test.....
 export const createUser = (id, name, email) => {
   firebase.firestore().collection('users').doc(id).set({
     idUsuario: id,
@@ -68,11 +68,11 @@ export const likesPostCount = (id, likes) => {
   return firebase.firestore().collection('posts').doc(id).update(obj);
 };
 
-// agregar comentario
-export const addCommentPost = (idPost, id, text) => {
-  firebase.firestore().collection('comment').add({
-    idPost,
-    idUsuario: id,
-    comment: text,
-  });
-};
+// // agregar comentario
+// export const addCommentPost = (idPost, id, text) => {
+//   firebase.firestore().collection('comment').add({
+//     idPost,
+//     idUsuario: id,
+//     comment: text,
+//   });
+// };

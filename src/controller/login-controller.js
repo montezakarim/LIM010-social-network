@@ -1,6 +1,6 @@
 import
 {
-  singInLogin, signInFacebook, signInGoogle, userCurrent,
+  singInLogin, signInFacebook, signInGoogle, userCurrent, logOut,
 }
   from '../module/controllerdata.js';
 
@@ -77,13 +77,13 @@ export const signInGoogleClick = (event) => {
 };
 
 // CERRAR SESION
-// export const logOutOnClick = (event) => {
-//   event.preventDefault();
-//   logOut()
-//     .then(() => {
-//       window.location.hash = '#/';
-//     });
-// };
+export const logOutOnClick = (event) => {
+  event.preventDefault();
+  logOut()
+    .then(() => {
+      window.location.hash = '#/';
+    });
+};
 
 export const showPassword = () => {
   const typePass = document.querySelector('#password');
